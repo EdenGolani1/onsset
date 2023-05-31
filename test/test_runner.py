@@ -14,8 +14,15 @@ import os
 from shutil import copyfile
 from tempfile import TemporaryDirectory
 
+import pandas as pd
+
 from onsset.runner import calibration, scenario
 
+import global_variables as gv
+import game_theory
+import numpy as np
+
+gv.counter = 0
 
 def run_analysis(tmpdir):
     """
@@ -84,5 +91,13 @@ def update_test_file():
 
 
 if __name__ == '__main__':
-
     update_test_file()
+
+df = pd.read_csv(gv.outputFileName)
+df2 = pd.read_csv(gv.calibratedFileName)
+
+df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
+
+
+game_theory.game_iterations(df,0.15)
+

@@ -1,12 +1,14 @@
 import logging
-from math import exp, log, pi
+from math import log, pi
 from typing import Dict
 import scipy.spatial
 
 import numpy as np
 import pandas as pd
 
-logging.basicConfig(format='%(asctime)s\t\t%(message)s', level=logging.ERROR)
+import global_variables
+
+logging.basicConfig(format='%(asctime)s\t\t%(message)s', level=logging.ERROR) #INFO INSTEAD OF ERROR
 logger = logging.getLogger(__name__)
 
 # Columns in settlements file must match these exactly
@@ -175,7 +177,7 @@ class Technology:
     def get_lcoe(self, energy_per_cell, people, num_people_per_hh, start_year, end_year, new_connections,
                  total_energy_per_cell, prev_code, grid_cell_area, additional_mv_line_length=0.0,
                  capacity_factor=0.9, grid_penalty_ratio=1, fuel_cost=0, elec_loop=0, productive_nodes=0,
-                 additional_transformer=0, penalty=1):
+                 additional_transformer=0, penalty=1, this_is_grid_calc=False):
         """Calculates the LCOE depending on the parameters.
 
         Parameters
@@ -249,6 +251,7 @@ class Technology:
 
         td_investment_cost = td_investment_cost * grid_penalty_ratio
         td_om_cost = td_investment_cost * self.om_of_td_lines * penalty
+
         installed_capacity = peak_load / capacity_factor
 
         cap_cost = td_investment_cost * 0
@@ -270,6 +273,7 @@ class Technology:
 
         # Perform the time-value LCOE calculation
         project_life = end_year - self.base_year + 1
+        global_variables.projectLife = project_life
         reinvest_year = 0
         step = start_year - self.base_year
         # If the technology life is less than the project life, we will have to invest twice to buy it again
@@ -305,13 +309,18 @@ class Technology:
         salvage = np.outer(total_investment_cost * (1 - used_life / self.tech_life), salvage)
 
         operation_and_maintenance = np.ones(project_life)
+
         for s in range(step):
             operation_and_maintenance[s] = 0
         operation_and_maintenance = np.outer(total_om_cost, operation_and_maintenance)
+        global_variables.counter += 1
+
+        if this_is_grid_calc:
+            global_variables.settlementOperationAndMaintenance = operation_and_maintenance #todo _OUR: take the right one
+
         fuel = np.outer(np.asarray(generation_per_year), np.zeros(project_life))
         for p in range(project_life):
             fuel[:, p] = el_gen[:, p] * fuel_cost
-
         discounted_investments = investments / discount_factor
         dicounted_grid_capacity_investments = grid_capacity_investments / discount_factor
         investment_cost = np.sum(discounted_investments, axis=1) + np.sum(dicounted_grid_capacity_investments, axis=1)
@@ -1365,6 +1374,7 @@ class SettlementProcessor:
                                                     year=year, grid_calc=grid_calc, grid_investment=grid_investment,
                                                     new_investment=new_investment, grid_capacity=grid_capacity,
                                                     new_capacity=new_capacity)
+                global_variables.settlementGridInvestment = pd.DataFrame(new_investment)
 
         return new_lcoes, cell_path_adjusted, elecorder, cell_path_real, pd.DataFrame(new_investment), pd.DataFrame(
             new_capacity)
@@ -1383,7 +1393,8 @@ class SettlementProcessor:
                                additional_mv_line_length=dist_adjusted,
                                elec_loop=elecorder,
                                additional_transformer=additional_transformer,
-                               capacity_factor=grid_calc.capacity_factor)
+                               capacity_factor=grid_calc.capacity_factor,
+                               this_is_grid_calc=True)
 
         return grid_lcoe, grid_investment, grid_capacity
 
