@@ -93,11 +93,29 @@ def update_test_file():
 if __name__ == '__main__':
     update_test_file()
 
-df = pd.read_csv(gv.outputFileName)
 df2 = pd.read_csv(gv.calibratedFileName)
+last_iter_changes = True
+iter_counter = 0
+while 1:
+    df = pd.read_csv(gv.outputFileName)
+    df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
 
-df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
+    iter_counter += 1
 
+    # play the game
+    last_iter_changes = game_theory.game_iterations(df, 0.15)
 
-game_theory.game_iterations(df,0.15)
+    # stop conditions
+    print(last_iter_changes)
+    if last_iter_changes == 0:
+        print("\ntest_runner: STOPPED >> last_iter_changes is 0, iter_count == " + str(iter_counter))
+        break
+    max_iter = 6
+    if iter_counter == max_iter:
+        print("\ntest_runner: STOPPED >> iter_count == " + str(max_iter))
+        break
 
+    # insert game results to onsset
+    update_test_file()
+
+print(df[df['GT_LatestDecision'] > 1 ]['GT_LatestDecision'])

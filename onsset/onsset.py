@@ -6,7 +6,7 @@ import scipy.spatial
 import numpy as np
 import pandas as pd
 
-import global_variables
+import global_variables as gv
 
 logging.basicConfig(format='%(asctime)s\t\t%(message)s', level=logging.ERROR) #INFO INSTEAD OF ERROR
 logger = logging.getLogger(__name__)
@@ -273,7 +273,7 @@ class Technology:
 
         # Perform the time-value LCOE calculation
         project_life = end_year - self.base_year + 1
-        global_variables.projectLife = project_life
+        gv.projectLife = project_life
         reinvest_year = 0
         step = start_year - self.base_year
         # If the technology life is less than the project life, we will have to invest twice to buy it again
@@ -313,10 +313,10 @@ class Technology:
         for s in range(step):
             operation_and_maintenance[s] = 0
         operation_and_maintenance = np.outer(total_om_cost, operation_and_maintenance)
-        global_variables.counter += 1
+        gv.counter += 1
 
         if this_is_grid_calc:
-            global_variables.settlementOperationAndMaintenance = operation_and_maintenance #todo _OUR: take the right one
+            gv.settlementOperationAndMaintenance = operation_and_maintenance #todo _OUR: take the right one
 
         fuel = np.outer(np.asarray(generation_per_year), np.zeros(project_life))
         for p in range(project_life):
@@ -1374,7 +1374,7 @@ class SettlementProcessor:
                                                     year=year, grid_calc=grid_calc, grid_investment=grid_investment,
                                                     new_investment=new_investment, grid_capacity=grid_capacity,
                                                     new_capacity=new_capacity)
-                global_variables.settlementGridInvestment = pd.DataFrame(new_investment)
+                gv.settlementGridInvestment = pd.DataFrame(new_investment)
 
         return new_lcoes, cell_path_adjusted, elecorder, cell_path_real, pd.DataFrame(new_investment), pd.DataFrame(
             new_capacity)
@@ -1448,7 +1448,7 @@ class SettlementProcessor:
     def update_grid_extension_info(self, grid_lcoe, dist, dist_adjusted, prev_dist, elecorder, new_elec_order,
                                    max_dist, new_lcoes, grid_capacity_limit, grid_connect_limit, cell_path_real,
                                    cell_path_adjusted, electrified, year, grid_calc, grid_investment, new_investment,
-                                   grid_capacity, new_capacity):
+                                   grid_capacity, new_capacity, game_theory_on=0):
 
         min_code_lcoes = self.df[SET_MIN_OFFGRID_LCOE + "{}".format(year)].copy(deep=True)
 
@@ -1474,13 +1474,17 @@ class SettlementProcessor:
         grid_connect_limit -= new_grid_connections.loc[grid_lcoe < min_code_lcoes].sum()
 
         # Update values for settlements that meet conditions
-        cell_path_real = np.where(grid_lcoe < min_code_lcoes, prev_dist + dist, cell_path_real)
-        cell_path_adjusted = np.where(grid_lcoe < min_code_lcoes, dist_adjusted, cell_path_adjusted)
-        elecorder = np.where(grid_lcoe < min_code_lcoes, new_elec_order, elecorder)
-        electrified = np.where(grid_lcoe < min_code_lcoes, 1, electrified)
-        new_lcoes = np.where(grid_lcoe < min_code_lcoes, grid_lcoe, new_lcoes)
-        new_investment = np.where(grid_lcoe < min_code_lcoes, grid_investment, new_investment)
-        new_capacity = np.where(grid_lcoe < min_code_lcoes, grid_capacity, new_capacity)
+        if game_theory_on:
+            cond = (gv.gtLatestDecision == 1)
+        else:
+            cond = ((grid_lcoe < min_code_lcoes) & (gv.gtLatestDecision == 0))
+        cell_path_real = np.where(cond, prev_dist + dist, cell_path_real)
+        cell_path_adjusted = np.where(cond, dist_adjusted, cell_path_adjusted)
+        elecorder = np.where(cond, new_elec_order, elecorder)
+        electrified = np.where(cond, 1, electrified)
+        new_lcoes = np.where(cond, grid_lcoe, new_lcoes)
+        new_investment = np.where(cond, grid_investment, new_investment)
+        new_capacity = np.where(cond, grid_capacity, new_capacity)
 
         return grid_capacity_limit, grid_connect_limit, cell_path_real, cell_path_adjusted, elecorder, \
                electrified, new_lcoes, new_investment, new_capacity

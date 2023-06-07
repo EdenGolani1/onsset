@@ -5,36 +5,40 @@ import numpy as np
 # calculate the cost function for all the relavent players
 def game_iterations(df,alpha):
     # initializing parameters for the loop
-    df['GT_LatestDecision'] = df['MinimumOverallCode' + str(gv.endYear)]
-    diff_counter = 0
+    df['GT_LatestDecision'] = df['MinimumOverallCode' + str(gv.endYear)]  # create new column in the main df
+    df_last_iter = df['GT_LatestDecision'].copy()  # create new df for comparison between two following iterations
     iter_counter = 0
     print("ALPHA:\t", round(alpha,2))
 
     while 1:
         iter_counter += 1
-        last_count_diff = diff_counter
+        df_last_iter['GT_LatestDecision'] = df['GT_LatestDecision'].copy()  # save last iteration state
 
         # play the game
         get_cost_function(df,alpha)
-        player_move(df)
+        player_move(df)  # changes the df['GT_LatestDecision'] values
 
-        # compare to the initial state
-        comparison = df['MinimumOverallCode' + str(gv.endYear)].compare(df['GT_LatestDecision'], keep_shape=True,
-                                                                        keep_equal=True)
-        diff_counter = len(comparison[comparison['self'] != comparison['other']])
-        # print("DIFF COUNTER: ", diff_counter)
-        # print(diff_counter)
+        # comparison to last iteration
+        comparison_to_last_iter = df['GT_LatestDecision'].compare(df_last_iter['GT_LatestDecision'],
+                                                                                      keep_shape=True, keep_equal=True)
+        diff_counter_iter = len(comparison_to_last_iter[comparison_to_last_iter['self'] != comparison_to_last_iter['other']])
+
         # stop conditions
-        if diff_counter == last_count_diff:
-            print("\nSTOPPED >> count_diff == last_count_diff")
+        if diff_counter_iter == 0:
+            print("\ngame_iterations: STOPPED >> diff_counter_iter == 0")
             break
         max_iter = 30
         if iter_counter == max_iter:
-            print("\nSTOPPED >> iter_count == " + str(max_iter))
+            print("\ngame_iterations: STOPPED >> iter_count == " + str(max_iter))
             break
 
-    print("ITER COUNT:\t", iter_counter ,"| DIFF COUNTER:\t", diff_counter)
+    df['GT_LatestDecision'] = np.where(df['MinimumOverallCode' + str(gv.endYear)]  ==  df['GT_LatestDecision'], 0 , df['GT_LatestDecision'])
+    diff_counter_init = (df['GT_LatestDecision'] != 0).sum()
+    print("ITER COUNT:\t", iter_counter, "| DIFF COUNTER:\t", diff_counter_init)
     print("========================================================================")
+    gv.gtLatestDecision = df['GT_LatestDecision'].copy()
+    print(df[df['GT_LatestDecision'] > 1]['GT_LatestDecision'])
+    return diff_counter_init
 
 def get_cost_function(df, alpha = 0.5):
     # New columns (preparation to the parameters)
