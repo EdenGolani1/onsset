@@ -78,24 +78,25 @@ def update_test_file():
     tmpdir = '.'
 
     summary, actual = run_analysis(tmpdir)
-
-    actual = os.path.join(tmpdir, 'dj-1-1_1_1_1_0_0_summary.csv')
+"""
+    actual = os.path.join(tmpdir, 'dj-1-1_1_1_1_0_2_summary.csv')
     expected = os.path.join('test', 'test_results', 'expected_summary.csv')
     if not summary:
         copyfile(actual, expected)
 
-    actual = os.path.join(tmpdir, 'dj-1-1_1_1_1_0_0.csv')
+    actual = os.path.join(tmpdir, 'dj-1-1_1_1_1_0_2.csv')
     expected = os.path.join('test', 'test_results', 'expected_full.csv')
     if not actual:
         copyfile(actual, expected)
-
+"""
 
 if __name__ == '__main__':
     update_test_file()
 
 df2 = pd.read_csv(gv.calibratedFileName)
-last_iter_changes = True
 iter_counter = 0
+max_iter = 10
+
 while 1:
     df = pd.read_csv(gv.outputFileName)
     df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
@@ -106,11 +107,10 @@ while 1:
     last_iter_changes = game_theory.game_iterations(df, 0.15)
 
     # stop conditions
-    print(last_iter_changes)
     if last_iter_changes == 0:
         print("\ntest_runner: STOPPED >> last_iter_changes is 0, iter_count == " + str(iter_counter))
         break
-    max_iter = 6
+
     if iter_counter == max_iter:
         print("\ntest_runner: STOPPED >> iter_count == " + str(max_iter))
         break

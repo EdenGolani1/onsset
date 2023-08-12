@@ -1019,7 +1019,7 @@ class SettlementProcessor:
 
         # REVIEW: The way this works now, for all urban or rural settlements that fit the conditioning.
         # The population SET_ELEC_POP is reduced by equal amount to match urban/rural national statistics respectively.
-        # TODO We might need to update with off-grid electrified in future versions
+        # We might need to update with off-grid electrified in future versions
 
         elec_modelled = 0
         self.df.loc[self.df[SET_NIGHT_LIGHTS] <= 0, [SET_ELEC_POP_CALIB]] = 0
@@ -1448,7 +1448,7 @@ class SettlementProcessor:
     def update_grid_extension_info(self, grid_lcoe, dist, dist_adjusted, prev_dist, elecorder, new_elec_order,
                                    max_dist, new_lcoes, grid_capacity_limit, grid_connect_limit, cell_path_real,
                                    cell_path_adjusted, electrified, year, grid_calc, grid_investment, new_investment,
-                                   grid_capacity, new_capacity, game_theory_on=0):
+                                   grid_capacity, new_capacity):
 
         min_code_lcoes = self.df[SET_MIN_OFFGRID_LCOE + "{}".format(year)].copy(deep=True)
 
@@ -1474,10 +1474,27 @@ class SettlementProcessor:
         grid_connect_limit -= new_grid_connections.loc[grid_lcoe < min_code_lcoes].sum()
 
         # Update values for settlements that meet conditions
-        if game_theory_on:
-            cond = (gv.gtLatestDecision == 1)
-        else:
-            cond = ((grid_lcoe < min_code_lcoes) & (gv.gtLatestDecision == 0))
+        onsset_cond = (grid_lcoe < min_code_lcoes)
+        cond = np.where(gv.gtLatestDecision == 0,
+                      # didn't play the last round
+                      onsset_cond,
+                      # played the last round
+                      np.where(gv.gtLatestDecision == 1,  # want to connect
+                               True,   # connect it
+                               False)  # # played and want to disconnect - don't connect it
+                               )
+        #print(str(np.any(cond)) + "    " + str(np.any(onsset_cond)))
+        if np.any(gv.gtLatestDecision) :
+            #pd.set_option('display.max_rows', None)
+            df1 = pd.DataFrame(cond)
+            df2 = pd.DataFrame(onsset_cond)
+            df3 = pd.DataFrame(gv.gtLatestDecision)
+            table = pd.DataFrame(df1)
+            table.insert(1,"onsset" , df2)
+            table.insert(2, "latest", df3)
+            #print(table)
+
+        pd.set_option('display.max_rows', 10)
         cell_path_real = np.where(cond, prev_dist + dist, cell_path_real)
         cell_path_adjusted = np.where(cond, dist_adjusted, cell_path_adjusted)
         elecorder = np.where(cond, new_elec_order, elecorder)
@@ -1522,7 +1539,7 @@ class SettlementProcessor:
 
         logging.info('Calculate new connections')
         # Calculate new connections for grid related purposes
-        # TODO - This was changed based on your "newly created" column SET_ELEC_POP.
+        # This was changed based on your "newly created" column SET_ELEC_POP.
         # Please review and check whether this creates any problem at your distribution_network function
         # using people/new connections and energy_per_settlement/total_energy_per_settlement
 
@@ -1604,7 +1621,7 @@ class SettlementProcessor:
             self.df.loc[self.df[SET_URBAN] == 2, SET_CAPITA_DEMAND] = self.df[
                 SET_RESIDENTIAL_TIER + str(wb_tier_urban_centers)]
 
-            # TODO: REVIEW, added Tier column
+            # REVIEW, added Tier column
             tier_1 = 38.7  # 38.7 refers to kWh/household/year. It is the mean value between Tier 1 and Tier 2
             tier_2 = 219
             tier_3 = 803
@@ -1883,6 +1900,11 @@ class SettlementProcessor:
             self.df.loc[self.df[SET_MIN_OVERALL + "{}".format(year)] == all_techs[i],
                         SET_MIN_OVERALL_CODE + "{}".format(year)] = tech_codes[i]
 
+        if np.any(gv.gtLatestDecision):
+            self.df[SET_MIN_OVERALL_CODE + "{}".format(year)] = np.where(gv.gtLatestDecision != 0 ,
+                                                                          gv.gtLatestDecision,
+                                                                          self.df[SET_MIN_OVERALL_CODE + "{}".format(year)])
+
     def calculate_investments_and_capacity(self, sa_diesel_investment, sa_diesel_capacity, sa_pv_investment,
                                            sa_pv_capacity, mg_diesel_investment, mg_diesel_capacity, mg_pv_investment,
                                            mg_pv_capacity, mg_wind_investment, mg_wind_capacity, mg_hydro_investment,
@@ -1912,7 +1934,6 @@ class SettlementProcessor:
                                                         mg_wind * mg_wind_capacity + mg_hydro * mg_hydro_capacity
 
     def apply_limitations(self, eleclimit, year, time_step, prioritization, auto_densification=0):
-
         logging.info('Determine electrification limits')
         choice = int(prioritization)
         self.df[SET_LIMIT + "{}".format(year)] = 0

@@ -112,7 +112,6 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
     summary_folder : str
 
     """
-
     scenario_info = pd.read_excel(specs_path, sheet_name='ScenarioInfo')
     scenarios = scenario_info['Scenario']
     scenario_parameters = pd.read_excel(specs_path, sheet_name='ScenarioParameters')

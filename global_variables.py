@@ -1,3 +1,5 @@
+import numpy as np
+
 global outputFileName
 global calibratedFileName
 
@@ -5,6 +7,7 @@ global endYear
 global projectLife
 global techLife
 techLife = 30  # of grid
+
 
 global settlementGridInvestment
 global settlementOperationAndMaintenance
