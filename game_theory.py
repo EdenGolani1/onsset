@@ -9,16 +9,14 @@ def game_iterations(df, alpha):
 
     #df_last_iter = df['GT_LatestDecision'].copy()  # create new df for comparison between two following iterations
     iter_counter = 0
-    print("ALPHA:\t", round(alpha,2))
-
+    shift = 0
     while 1:
         iter_counter += 1
         df_last_iter = df['GT_LatestDecision'].copy()  # save last iteration state
 
         # play the game
         get_cost_function(df, alpha)
-        player_move(df)  # changes the df['GT_LatestDecision'] values
-
+        shift = player_move_new(df, shift)  # changes the df['GT_LatestDecision'] values
         # comparison to last iteration
         comparison_to_last_iter = df['GT_LatestDecision'].compare(df_last_iter, keep_shape=True, keep_equal=True)
         diff_counter_iter = len(comparison_to_last_iter[comparison_to_last_iter['self'] != comparison_to_last_iter['other']])
@@ -43,18 +41,20 @@ def game_iterations(df, alpha):
 def get_cost_function(df, alpha = 0.5):
     # New columns (preparation to the parameters)
     df['GT_GridInvestment'] = gv.settlementGridInvestment
-    df['GT_OperationAndMaintenance'] = gv.settlementOperationAndMaintenance[:, -1]
+    df['GT_OperationAndMaintenance'] = gv.settlementOperAndMaint[:, -1]
 
     # Setting the parameters to the function
     beta = 1 - alpha
     gridPop = df.loc[df['GT_LatestDecision'] == 1, 'Pop' + str(gv.endYear)].sum()
     settlementPop = df['Pop' + str(gv.endYear)]
     gridInvestment = df.loc[df['GT_LatestDecision'] == 1, 'GT_GridInvestment'].sum()
+    #gridInvestment = gv.settlementGridInvestment
     operationAndMaintenance = df.loc[df['GT_LatestDecision'] == 1, 'GT_OperationAndMaintenance'].sum()
-    priceConstant = gridInvestment/min(gv.projectLife, gv.techLife) + operationAndMaintenance
-    settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
     gridConsumption = df.loc[df['GT_LatestDecision'] == 1, 'EnergyPerSettlement' + str(gv.endYear)].sum()
+    settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
+
     priceVariable = gv.fuelCost*gridConsumption
+    priceConstant = gridInvestment / min(gv.projectLife, gv.techLife) + operationAndMaintenance
 
     # Cost Function if the tech is grid
     costFuncGrid = alpha*(settlementPop/gridPop)*priceConstant + (settlementConsumption/gridConsumption)*(priceVariable + beta*priceConstant)
@@ -63,6 +63,13 @@ def get_cost_function(df, alpha = 0.5):
     costFuncNotGrid = df['MinimumOverallLCOE' + str(gv.endYear)]*settlementConsumption
     df.loc[df['GT_LatestDecision'] != 1, 'GT_CostFunction'] = costFuncNotGrid"""
     df['GT_CostFunction'] = costFuncGrid
+
+    df['Minimum_LCOE_Off_grid' + str(gv.endYear)] = np.where(df['GT_LatestDecision'] == 1,
+                                             gv.ACT_COST * df['Minimum_LCOE_Off_grid' + str(gv.endYear)],
+                                             df['Minimum_LCOE_Off_grid' + str(gv.endYear)])
+    df['GT_CostFunction'] = np.where(df['GT_LatestDecision'] != 1,
+                                             gv.ACT_COST * df['GT_CostFunction'],
+                                             df['GT_CostFunction'])
 
     # Prints
     # print("First Coefficient: \n", settlementPop/gridPop, "\n")
@@ -75,18 +82,24 @@ def get_cost_function(df, alpha = 0.5):
     print("gridInvestment\t-\t", format(int(gridInvestment),','))
     print("gridPop\t\t\t-\t", format(int(gridPop), ','))
     print("operationAndMaintenance\t-\t", format(int(operationAndMaintenance), ','))
+    """""
+    print("hye")
+    print(gv.people)
+    print(gv.new_connections)
+    print(gv.prev_code)
+    print(gv.total_energy_per_cell)
+    print(gv.energy_per_cell)
+    print(gv.additional_mv_line_length)
+    print(gv.additional_transformer)
+    print(gv.productive_nodes)
+    print(gv.elec_loop)
+    print("Arigato")
+    """
     # print("Our Cost Function: \n", df.loc[df['GT_LatestDecision'] == 1, 'GT_CostFunction'], "\n")
 
 
 def player_move(df):
     settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
-    """
-    Conds and Values:
-    off_grid_is_cheaper = (df['GT_CostFunction'] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)]*settlementConsumption)
-    is_connected_to_grid = (df['GT_LatestDecision'] == 1)
-    was_connected_in_2018 = (df['GT_CalibratedConnectGrid'] != 1)
-    no_change = df['GT_LatestDecision']
-    """
     df['GT_LatestDecision'] = \
             np.where(df['GT_CostFunction'] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)]*settlementConsumption,
                      # off grid is cheaper
@@ -101,3 +114,20 @@ def player_move(df):
                               df['GT_LatestDecision']),
                      )
 
+
+def player_move_new(df, s):
+    settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
+    print(s)
+    for index, _ in df.iterrows():
+        i = (index+s)%(len(df)-1)
+        if df['GT_CostFunction'][i] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)][i]*settlementConsumption[i]:
+            if df['GT_LatestDecision'][i] == 1:
+                if df['GT_CalibratedConnectGrid'][i] != 1:
+                    df['GT_LatestDecision'][i] = df['Off_Grid_Code' + str(gv.endYear)][i]
+                    print(i)
+                    return i+1
+            elif df['GT_LatestDecision'][i] != 1:
+                df['GT_LatestDecision'][i] = 1
+                print(i)
+                return i+1
+    return 0

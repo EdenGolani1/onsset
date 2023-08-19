@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
 df2 = pd.read_csv(gv.calibratedFileName)
 iter_counter = 0
-max_iter = 10
+max_iter = 20
 
 while 1:
     df = pd.read_csv(gv.outputFileName)

@@ -233,6 +233,16 @@ class Technology:
 
         grid_penalty_ratio = np.maximum(1, grid_penalty_ratio)
 
+        gv.people = people[0]
+        gv.new_connections = new_connections[0]
+        gv.prev_code = prev_code[0]
+        gv.total_energy_per_cell = total_energy_per_cell[0]
+        gv.energy_per_cell = energy_per_cell[0]
+        gv.additional_mv_line_length = additional_mv_line_length
+        gv.additional_transformer = additional_transformer
+        gv.productive_nodes = productive_nodes
+        gv.elec_loop = elec_loop
+
         generation_per_year, peak_load, td_investment_cost = self.td_network_cost(people,
                                                                                   new_connections,
                                                                                   prev_code,
@@ -316,7 +326,15 @@ class Technology:
         gv.counter += 1
 
         if this_is_grid_calc:
-            gv.settlementOperationAndMaintenance = operation_and_maintenance #todo _OUR: take the right one
+            gv.settlementOperAndMaint = operation_and_maintenance  #todo _OUR: take the right one
+            #print(operation_and_maintenance[0,:])
+            #print(str(td_om_cost[0]) + " " + str(td_om_cost[1]))
+            #print(cap_cost[0])
+            #print(penalty)
+            #print(self.om_costs)
+            #print(installed_capacity[0])
+
+
 
         fuel = np.outer(np.asarray(generation_per_year), np.zeros(project_life))
         for p in range(project_life):
@@ -2021,4 +2039,7 @@ class SettlementProcessor:
                     self.df.loc[(self.df[SET_ELEC_FINAL_CODE + "{}".format(year)] == t) &
                                 (self.df[SET_LIMIT + "{}".format(year)] == 1)]
                     [s + "{}".format(year)])
+
+                #if s is SET_INVESTMENT_COST and t == 1:
+                 #   gv.settlementGridInvestment += df_summary[year][sumtechs[i]]
                 i += 1
