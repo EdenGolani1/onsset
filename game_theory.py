@@ -10,13 +10,24 @@ def game_iterations(df, alpha):
     #df_last_iter = df['GT_LatestDecision'].copy()  # create new df for comparison between two following iterations
     iter_counter = 0
     offset = 0
-    while 1:
+    max_iter = 1400
+    done = False
+    while not done:
         iter_counter += 1
         df_last_iter = df['GT_LatestDecision'].copy()  # save last iteration state
 
         # play the game
         get_cost_function(df, alpha)
-        offset = player_move_new(df, offset)  # changes the df['GT_LatestDecision'] values
+        #offset = player_move_new(df, offset)  # changes the df['GT_LatestDecision'] values
+        played = False
+        while not played:
+            played, player_id = player_move_new_proMax(df)
+            df['GT_played_flag'][player_id] = 0
+            if (df['move_prio'] <= 0).all():
+                print("batellllllllllllllllllllllllllllllllllllllll")
+                done = True
+                break
+
         # comparison to last iteration
         comparison_to_last_iter = df['GT_LatestDecision'].compare(df_last_iter, keep_shape=True, keep_equal=True)
         diff_counter_iter = len(comparison_to_last_iter[comparison_to_last_iter['self'] != comparison_to_last_iter['other']])
@@ -25,7 +36,7 @@ def game_iterations(df, alpha):
         if diff_counter_iter == 0:
             print("\ngame_iterations: STOPPED >> diff_counter_iter == 0")
             break
-        max_iter = 30
+
         if iter_counter == max_iter:
             print("\ngame_iterations: STOPPED >> iter_count == " + str(max_iter))
             break
@@ -134,3 +145,28 @@ def player_move_new(df, offset):
                 df['GT_played_flag'][i] = 0
                 return i+1
     return 0
+
+
+def player_move_new_proMax(df):
+    settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
+    df['delta'] = abs((df['GT_CostFunction'] - df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption) * df[
+        'GT_played_flag'])
+    #print(df['delta'])
+    df['move_prio'] = np.where(df['GT_LatestDecision'] == 1, df['delta'], -df['delta'])
+    i = df['move_prio'].idxmax()
+
+    print(i)
+    print("move_prio:", df['move_prio'][i])
+
+    if df['GT_LatestDecision'][i] == 1:
+        if df['GT_CalibratedConnectGrid'][i] != 1:
+            df['GT_LatestDecision'][i] = df['Off_Grid_Code' + str(gv.endYear)][i]
+            print("player id: ", i)
+            return (True, i)
+    elif df['GT_LatestDecision'][i] != 1:
+        df['GT_LatestDecision'][i] = 1
+        print("player id: ", i)
+        return (True, i)
+    return (False, i)
+
+
