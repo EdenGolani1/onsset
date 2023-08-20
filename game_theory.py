@@ -6,17 +6,17 @@ import numpy as np
 def game_iterations(df, alpha):
     # initializing parameters for the loop
     df['GT_LatestDecision'] = df['MinimumOverallCode' + str(gv.endYear)]  # create new column in the main df
-
+    df['GT_played_flag'] = 1  #TODO implement as a counter
     #df_last_iter = df['GT_LatestDecision'].copy()  # create new df for comparison between two following iterations
     iter_counter = 0
-    shift = 0
+    offset = 0
     while 1:
         iter_counter += 1
         df_last_iter = df['GT_LatestDecision'].copy()  # save last iteration state
 
         # play the game
         get_cost_function(df, alpha)
-        shift = player_move_new(df, shift)  # changes the df['GT_LatestDecision'] values
+        offset = player_move_new(df, offset)  # changes the df['GT_LatestDecision'] values
         # comparison to last iteration
         comparison_to_last_iter = df['GT_LatestDecision'].compare(df_last_iter, keep_shape=True, keep_equal=True)
         diff_counter_iter = len(comparison_to_last_iter[comparison_to_last_iter['self'] != comparison_to_last_iter['other']])
@@ -115,19 +115,22 @@ def player_move(df):
                      )
 
 
-def player_move_new(df, s):
+def player_move_new(df, offset):
     settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
-    print(s)
+    print(offset)
     for index, _ in df.iterrows():
-        i = (index+s)%(len(df)-1)
-        if df['GT_CostFunction'][i] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)][i]*settlementConsumption[i]:
+        i = (index + offset) % (len(df) - 1)
+        if df['GT_CostFunction'][i] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)][i]*settlementConsumption[i] \
+                and df['GT_played_flag'][i] == 1:
             if df['GT_LatestDecision'][i] == 1:
                 if df['GT_CalibratedConnectGrid'][i] != 1:
                     df['GT_LatestDecision'][i] = df['Off_Grid_Code' + str(gv.endYear)][i]
                     print(i)
+                    df['GT_played_flag'][i] = 0
                     return i+1
             elif df['GT_LatestDecision'][i] != 1:
                 df['GT_LatestDecision'][i] = 1
                 print(i)
+                df['GT_played_flag'][i] = 0
                 return i+1
     return 0
