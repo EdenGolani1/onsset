@@ -6,7 +6,7 @@ import numpy as np
 def game_iterations(df, alpha):
     # initializing parameters for the loop
     df['GT_LatestDecision'] = df['MinimumOverallCode' + str(gv.endYear)]  # create new column in the main df
-    df['GT_played_flag'] = 1  #TODO implement as a counter
+    df['GT_played_flag'] = 1  #todo _OUR: implement as a counter or delete it!
     #df_last_iter = df['GT_LatestDecision'].copy()  # create new df for comparison between two following iterations
     iter_counter = 0
     offset = 0
@@ -24,7 +24,6 @@ def game_iterations(df, alpha):
             played, player_id = player_move_new_proMax(df)
             df['GT_played_flag'][player_id] = 0
             if (df['move_prio'] <= 0).all():
-                print("batellllllllllllllllllllllllllllllllllllllll")
                 done = True
                 break
 
@@ -68,19 +67,8 @@ def get_cost_function(df, alpha = 0.5):
     priceConstant = gridInvestment / min(gv.projectLife, gv.techLife) + operationAndMaintenance
 
     # Cost Function if the tech is grid
-    costFuncGrid = alpha*(settlementPop/gridPop)*priceConstant + (settlementConsumption/gridConsumption)*(priceVariable + beta*priceConstant)
-    """df.loc[df['GT_LatestDecision'] == 1, 'GT_CostFunction'] = costFuncGrid
-    # Cost Function if the tech is not grid
-    costFuncNotGrid = df['MinimumOverallLCOE' + str(gv.endYear)]*settlementConsumption
-    df.loc[df['GT_LatestDecision'] != 1, 'GT_CostFunction'] = costFuncNotGrid"""
-    df['GT_CostFunction'] = costFuncGrid
-
-    df['Minimum_LCOE_Off_grid' + str(gv.endYear)] = np.where(df['GT_LatestDecision'] == 1,
-                                             gv.ACT_COST * df['Minimum_LCOE_Off_grid' + str(gv.endYear)],
-                                             df['Minimum_LCOE_Off_grid' + str(gv.endYear)])
-    df['GT_CostFunction'] = np.where(df['GT_LatestDecision'] != 1,
-                                             gv.ACT_COST * df['GT_CostFunction'],
-                                             df['GT_CostFunction'])
+    gridCostFunc = alpha*(settlementPop/gridPop)*priceConstant + (settlementConsumption/gridConsumption)*(priceVariable + beta*priceConstant)
+    df['GT_GridCostFunction'] = gridCostFunc
 
     # Prints
     # print("First Coefficient: \n", settlementPop/gridPop, "\n")
@@ -93,26 +81,13 @@ def get_cost_function(df, alpha = 0.5):
     print("gridInvestment\t-\t", format(int(gridInvestment),','))
     print("gridPop\t\t\t-\t", format(int(gridPop), ','))
     print("operationAndMaintenance\t-\t", format(int(operationAndMaintenance), ','))
-    """""
-    print("hye")
-    print(gv.people)
-    print(gv.new_connections)
-    print(gv.prev_code)
-    print(gv.total_energy_per_cell)
-    print(gv.energy_per_cell)
-    print(gv.additional_mv_line_length)
-    print(gv.additional_transformer)
-    print(gv.productive_nodes)
-    print(gv.elec_loop)
-    print("Arigato")
-    """
-    # print("Our Cost Function: \n", df.loc[df['GT_LatestDecision'] == 1, 'GT_CostFunction'], "\n")
+    # print("Our Cost Function: \n", df.loc[df['GT_LatestDecision'] == 1, 'GT_GridCostFunction'], "\n")
 
 
 def player_move(df):
     settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
     df['GT_LatestDecision'] = \
-            np.where(df['GT_CostFunction'] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)]*settlementConsumption,
+            np.where(df['GT_GridCostFunction'] > df['Minimum_LCOE_Off_grid' + str(gv.endYear)]*settlementConsumption,
                      # off grid is cheaper
                      np.where(df['GT_LatestDecision'] == 1,
                               np.where(df['GT_CalibratedConnectGrid'] != 1,
@@ -149,7 +124,7 @@ def player_move_new(df, offset):
 
 def player_move_new_proMax(df):
     settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
-    df['delta'] = abs((df['GT_CostFunction'] - df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption) * df[
+    df['delta'] = abs((df['GT_GridCostFunction'] - df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption) * df[
         'GT_played_flag'])
     #print(df['delta'])
     df['move_prio'] = np.where(df['GT_LatestDecision'] == 1, df['delta'], -df['delta'])
@@ -157,6 +132,7 @@ def player_move_new_proMax(df):
 
     print(i)
     print("move_prio:", df['move_prio'][i])
+
 
     if df['GT_LatestDecision'][i] == 1:
         if df['GT_CalibratedConnectGrid'][i] != 1:

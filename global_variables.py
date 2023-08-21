@@ -7,9 +7,10 @@ global endYear
 global projectLife
 global techLife
 techLife = 30  # of grid
-global ACT_COST
-ACT_COST = 1.05
-
+global ACT_COST_2GRID
+global ACT_COST_2OFFGRID
+ACT_COST_2GRID = 1.05
+ACT_COST_2OFFGRID = 0.9
 
 global settlementGridInvestment
 #settlementGridInvestment = 0
