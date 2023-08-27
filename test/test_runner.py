@@ -15,7 +15,7 @@ from shutil import copyfile
 from tempfile import TemporaryDirectory
 from game_theory import global_variables as gv
 from onsset.runner import calibration, scenario
-import game_theory
+from game_theory import game_theory
 import pandas as pd
 
 gv.counter = 0

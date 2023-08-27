@@ -1,4 +1,4 @@
-import global_variables as gv
+from game_theory import global_variables as gv
 import numpy as np
 
 TotalCost = 0
