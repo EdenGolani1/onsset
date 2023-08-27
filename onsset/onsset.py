@@ -2,11 +2,9 @@ import logging
 from math import log, pi
 from typing import Dict
 import scipy.spatial
-
 import numpy as np
 import pandas as pd
-
-import global_variables as gv
+from game_theory import global_variables as gv
 
 logging.basicConfig(format='%(asctime)s\t\t%(message)s', level=logging.ERROR) #INFO INSTEAD OF ERROR
 logger = logging.getLogger(__name__)

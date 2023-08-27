@@ -6,7 +6,7 @@ import os
 import pandas as pd
 from onsset import (SET_ELEC_ORDER, SET_LCOE_GRID, SET_MIN_GRID_DIST, SET_GRID_PENALTY,
                     SET_MV_CONNECT_DIST, SET_WINDVEL, SET_WINDCF, SettlementProcessor, Technology)
-import global_variables
+from game_theory import global_variables as gv
 
 try:
     from onsset.specs import (SPE_COUNTRY, SPE_ELEC, SPE_ELEC_MODELLED,
@@ -140,7 +140,7 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
         annual_new_grid_connections_limit = scenario_parameters.iloc[five_year_index][
                                                 'GridConnectionsLimitThousands'] * 1000
         grid_price = scenario_parameters.iloc[grid_index]['GridGenerationCost']
-        global_variables.fuelCost = grid_price
+        gv.fuelCost = grid_price
         pv_capital_cost_adjust = scenario_parameters.iloc[pv_index]['PV_Cost_adjust']
         diesel_price = scenario_parameters.iloc[diesel_index]['DieselPrice']
         productive_demand = scenario_parameters.iloc[productive_index]['ProductiveDemand']
@@ -152,8 +152,8 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
                                            '{}-1-{}_{}_{}_{}_{}_{}.csv'.format(country_id, pop_index, tier_index,
                                                                                five_year_index, grid_index, pv_index,
                                                                                prio_index))
-        global_variables.outputFileName = settlements_out_csv
-        global_variables.calibratedFileName = calibrated_csv_path
+        gv.outputFileName = settlements_out_csv
+        gv.calibratedFileName = calibrated_csv_path
 
         summary_csv = os.path.join(summary_folder,
                                    '{}-1-{}_{}_{}_{}_{}_{}_summary.csv'.format(country_id, pop_index, tier_index,
@@ -164,7 +164,7 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
 
         start_year = specs_data.iloc[0][SPE_START_YEAR]
         end_year = specs_data.iloc[0][SPE_END_YEAR]
-        global_variables.endYear = end_year
+        gv.endYear = end_year
 
         num_people_per_hh_rural = float(specs_data.iloc[0][SPE_NUM_PEOPLE_PER_HH_RURAL])
         num_people_per_hh_urban = float(specs_data.iloc[0][SPE_NUM_PEOPLE_PER_HH_URBAN])

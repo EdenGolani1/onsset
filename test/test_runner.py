@@ -13,14 +13,10 @@ import filecmp
 import os
 from shutil import copyfile
 from tempfile import TemporaryDirectory
-
-import pandas as pd
-
+from game_theory import global_variables as gv
 from onsset.runner import calibration, scenario
-
-import global_variables as gv
 import game_theory
-import numpy as np
+import pandas as pd
 
 gv.counter = 0
 
