@@ -1506,7 +1506,7 @@ class SettlementProcessor:
             df2 = pd.DataFrame(onsset_cond)
             df3 = pd.DataFrame(gv.gtLatestDecision)
             table = pd.DataFrame(df1)
-            table.insert(1,"onsset" , df2)
+            table.insert(1, "onsset", df2)
             table.insert(2, "latest", df3)
             #print(table)
 

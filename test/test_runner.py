@@ -11,12 +11,14 @@ changes the contents of the output files.
 
 import filecmp
 import os
+import sys
 from shutil import copyfile
 from tempfile import TemporaryDirectory
 from game_theory import global_variables as gv
 from onsset.runner import calibration, scenario
 from game_theory import game_theory
 import pandas as pd
+import time
 
 gv.counter = 0
 
@@ -91,27 +93,30 @@ if __name__ == '__main__':
 
 df2 = pd.read_csv(gv.calibratedFileName)
 iter_counter = 0
-max_iter = 20
+max_iter = 1500
 
-while 1:
-    df = pd.read_csv(gv.outputFileName)
-    df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
+with open('gt_output.txt', 'w') as sys.stdout:
+    st = time.time()
+    while 1:
+        df = pd.read_csv(gv.outputFileName)
+        df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
+        print(df['GT_CalibratedConnectGrid'].value_counts())
+        iter_counter += 1
 
-    iter_counter += 1
+        # play the game
+        last_iter_changes = game_theory.game_iterations(df, 0.15, True)
+        # stop conditions
+        if last_iter_changes == 0:
+            print("\ntest_runner: STOPPED >> last_iter_changes is 0, iter_count == " + str(iter_counter - 1))
+            break
 
-    # play the game
-    last_iter_changes = game_theory.game_iterations(df, 0.15)
+        if iter_counter == max_iter:
+            print("\ntest_runner: STOPPED >> iter_count == " + str(max_iter))
+            break
 
-    # stop conditions
-    if last_iter_changes == 0:
-        print("\ntest_runner: STOPPED >> last_iter_changes is 0, iter_count == " + str(iter_counter))
-        break
+        # insert game results to onsset
+        update_test_file()
 
-    if iter_counter == max_iter:
-        print("\ntest_runner: STOPPED >> iter_count == " + str(max_iter))
-        break
-
-    # insert game results to onsset
-    update_test_file()
-
-print(df[df['GT_LatestDecision'] > 1 ]['GT_LatestDecision'])
+    et = time.time()
+    print(df[df['GT_LatestDecision'] > 1 ]['GT_LatestDecision'])
+    print(f"Runtime: {int(et-st)}")

@@ -5,51 +5,27 @@ TotalCost = 0
 
 
 # calculate the cost function for all the relevant players
-def game_iterations(df, alpha):
+def game_iterations(df, alpha, enableConnection=False):
     # initializing parameters for the loop
     df['GT_LatestDecision'] = df['MinimumOverallCode' + str(gv.endYear)]  # create new column in the main df
-    df['GT_played_flag'] = 1  #todo _OUR: implement as a counter or delete it!
-    iter_counter = 0
-    offset = 0
-    max_iter = 1400
-    done = False
-    player_id = 0
-    while not done:
-        iter_counter += 1
-        df_last_iter = df['GT_LatestDecision'].copy()  # save last iteration state
 
-        # play the game
-        get_cost_function(df, alpha , player_id)
-        played = False
-        while not played:
-            played, player_id = player_move(df)
-            df['GT_played_flag'][player_id] = 0
-            if (df['delta'] <= 0).all():
-                done = True
-                break
-
-        # comparison to last iteration
-        comparison_to_last_iter = df['GT_LatestDecision'].compare(df_last_iter, keep_shape=True, keep_equal=True)
-        diff_counter_iter = len(comparison_to_last_iter[comparison_to_last_iter['self'] != comparison_to_last_iter['other']])
-
-        # stop conditions
-        if diff_counter_iter == 0:
-            print("\ngame_iterations: STOPPED >> diff_counter_iter == 0")
-            break
-
-        if iter_counter == max_iter:
-            print("\ngame_iterations: STOPPED >> iter_count == " + str(max_iter))
-            break
-
-    df['GT_LatestDecision'] = np.where(df['MinimumOverallCode' + str(gv.endYear)] == df['GT_LatestDecision'], 0, df['GT_LatestDecision'])
-    diff_counter_init = (df['GT_LatestDecision'] != 0).sum()
-    print("game_iterations: ITER COUNT:\t", iter_counter, "| DIFF COUNTER:\t", diff_counter_init)
+    # make one move
+    get_cost_function(df, alpha)
+    played = False
+    cntr = gv.numOfSettlements
+    while not played:
+        played, player_id = player_move(df, enableConnection)
+        cntr -= 1
+        if cntr == 0:
+            return 0
+    df['GT_played_flag'] = gv.played_flag
+    df['GT_LatestDecision'] = np.where(df['GT_played_flag'] == 2, 0, df['GT_LatestDecision'])
     print("========================================================================")
     gv.gtLatestDecision = df['GT_LatestDecision'].copy()
-    return diff_counter_init
+    return 1
 
 
-def get_cost_function(df, alpha = 0.5 , player_id = 0):
+def get_cost_function(df, alpha=0.5):
     global TotalCost
     # New columns (preparation to the parameters)
     df['GT_GridInvestment'] = gv.settlementGridInvestment
@@ -75,7 +51,7 @@ def get_cost_function(df, alpha = 0.5 , player_id = 0):
     priceVariable = gv.fuelCost * df['GT_PotentialGridConsumption']
     priceConstant = gridInvestment / min(gv.projectLife, gv.techLife) + operationAndMaintenance
     df['GT_PotentialPriceConstant'] = np.where(df['GT_LatestDecision'] == 1, priceConstant, df['GT_PotentialGridInvestment'] / min(gv.projectLife, gv.techLife) + df['GT_PotentialOperationAndMaintenance'])
-    print(f"df['GT_PotentialPriceConstant']: {df['GT_PotentialPriceConstant'][player_id]}")
+    #print(f"df['GT_PotentialPriceConstant']: {df['GT_PotentialPriceConstant'][player_id]}")
     # Cost Function if the tech is grid
     gridCostFunc = alpha*(settlementPop/df['GT_PotentialGridPop'])*df['GT_PotentialPriceConstant'] + (settlementConsumption/df['GT_PotentialGridConsumption'])*(priceVariable + beta * df['GT_PotentialPriceConstant'])
     df['GT_GridCostFunction'] = gridCostFunc
@@ -84,32 +60,45 @@ def get_cost_function(df, alpha = 0.5 , player_id = 0):
     TotalCost = np.where(df['GT_LatestDecision'] == 1, df['GT_GridCostFunction'], (df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption))
     TotalCostScalar = 0
     TotalCostScalar = TotalCost.sum()
-    if player_id != 0:
-        print(f"TotalCost: {TotalCost[player_id]}\nPrevTotalCost: {PrevTotalCost[player_id]} " )
-    # Prints
+    print("gridPop\t\t\t-\t", format(int(gridPop), ','))
+    """if player_id != 0:
+        print(f"TotalCost: {TotalCost[player_id]}\nPrevTotalCost: {PrevTotalCost[player_id]} " )"""
+"""    # Prints
     print('---------------------------------------------')
     print("gridConsumption\t-\t",format(int(gridConsumption),','))
     print("gridInvestment\t-\t", format(int(gridInvestment),','))
     print("gridPop\t\t\t-\t", format(int(gridPop), ','))
     print("operationAndMaintenance\t-\t", format(int(operationAndMaintenance), ','))
-    print("TotalCost\t\t\t-\t", format(int(TotalCostScalar), ','))
+    print("TotalCost\t\t\t-\t", format(int(TotalCostScalar), ','))"""
 
 
-def player_move(df):
+
+def player_move(df, enableConnection=False):
     settlementConsumption = df['EnergyPerSettlement' + str(gv.endYear)]
     df['delta'] = np.where(df['GT_LatestDecision'] == 1,
-                           (df['GT_GridCostFunction'] - gv.ACT_COST_2OFFGRID * df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption)
-                                     / df['Pop' + str(gv.endYear)] * df['GT_played_flag'],
-                           (df['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption - gv.ACT_COST_2GRID * df['GT_GridCostFunction'])
-                                     / df['Pop' + str(gv.endYear)] * df['GT_played_flag'])
+                           (df['GT_GridCostFunction'] - (gv.ACT_COST_2OFFGRID + df['Minimum_LCOE_Off_grid' + str(gv.endYear)]) * settlementConsumption)
+                                     / df['Pop' + str(gv.endYear)] * gv.played_flag,
+                           ((df['Minimum_LCOE_Off_grid' + str(gv.endYear)] - gv.ACT_COST_2GRID) * settlementConsumption - df['GT_GridCostFunction'])
+                                     / df['Pop' + str(gv.endYear)] * gv.played_flag)
 
     i = df['delta'].idxmax()
-    print(f"df['GT_LatestDecision']: {df['GT_LatestDecision'][i]}\ndf['delta']: {df['delta'][i]}\ndf['GT_GridCostFunction']: {df['GT_GridCostFunction'][i]}\ndf['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption: {df['Minimum_LCOE_Off_grid' + str(gv.endYear)][i] * settlementConsumption[i]}")
+    #print(f"df['GT_LatestDecision']: {df['GT_LatestDecision'][i]}\ndf['delta']: {df['delta'][i]}\ndf['GT_GridCostFunction']: {df['GT_GridCostFunction'][i]}\ndf['Minimum_LCOE_Off_grid' + str(gv.endYear)] * settlementConsumption: {df['Minimum_LCOE_Off_grid' + str(gv.endYear)][i] * settlementConsumption[i]}")
+    if gv.moves_cnt_down[i] == 0:
+        return (False, i)
     if df['GT_LatestDecision'][i] == 1 and df['delta'][i] > 0:
         if df['GT_CalibratedConnectGrid'][i] != 1:  # if was connected to grid from the beginning, don't disconnect it
             df['GT_LatestDecision'][i] = df['Off_Grid_Code' + str(gv.endYear)][i]
+            print(f">>>>>>> {i} disconnected")
+            gv.moves_cnt_down[i] -= 1
+            if gv.moves_cnt_down[i] == 0:
+                gv.played_flag[i] = 0
             return (True, i)
     elif df['GT_LatestDecision'][i] != 1 and df['delta'][i] > 0:
-        df['GT_LatestDecision'][i] = 1
-        return (True, i)
+        if enableConnection:
+            df['GT_LatestDecision'][i] = 1
+            print(f">>>>>>> {i} connected")
+            gv.moves_cnt_down[i] -= 1
+            if gv.moves_cnt_down[i] == 0:
+                gv.played_flag[i] = 0
+            return (True, i)
     return (False, i)
