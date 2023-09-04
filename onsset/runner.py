@@ -116,10 +116,10 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
     scenarios = scenario_info['Scenario']
     scenario_parameters = pd.read_excel(specs_path, sheet_name='ScenarioParameters')
     specs_data = pd.read_excel(specs_path, sheet_name='SpecsDataCalib')
-    print(specs_data.loc[0, SPE_COUNTRY])
+    #print(specs_data.loc[0, SPE_COUNTRY])
 
     for scenario in scenarios:
-        print('Scenario: ' + str(scenario + 1))
+        #print('Scenario: ' + str(scenario + 1))
         country_id = specs_data.iloc[0]['CountryCode']
         pop_future = specs_data.loc[0, SPE_POP_FUTURE]
         urban_future = specs_data.loc[0, SPE_URBAN_FUTURE]

@@ -1058,8 +1058,8 @@ class SettlementProcessor:
             dist_limit = max_hv_dist
             grid_data = 'HV lines'
 
-        print('We have identified the existence of {} as input data; therefore we proceed using '
-              'those for the calibration'.format(grid_data))
+        """print('We have identified the existence of {} as input data; therefore we proceed using '
+              'those for the calibration'.format(grid_data))"""
 
         # Update which settlements are considered to be electrified according to the conditions
         self.df.loc[(self.df[SET_CALIB_GRID_DIST] < dist_limit) & (self.df[SET_NIGHT_LIGHTS] > min_night_lights) &
@@ -1104,7 +1104,7 @@ class SettlementProcessor:
                         break
 
         else:
-            print('Calibrating to match both urban and rural electrified population')
+            #print('Calibrating to match both urban and rural electrified population')
             urban_elec_modelled = self.df.loc[(self.df[SET_ELEC_CURRENT] == 1) & (self.df[SET_URBAN] == 2),
                                               SET_ELEC_POP_CALIB].sum()
 
@@ -1195,13 +1195,13 @@ class SettlementProcessor:
         rural_elec_modelled = self.df.loc[(self.df[SET_ELEC_CURRENT] == 1) & (self.df[SET_URBAN] < 2),
                                           SET_ELEC_POP_CALIB].sum()
 
-        print('The modelled electrification rate differ by {0:.2f}. '
+        """print('The modelled electrification rate differ by {0:.2f}. '
               'Urban elec. rate differ by {1:.2f} and Rural elec. rate differ by {2:.2f}. \n'
               'If this is not acceptable please '
               'revise this part of the algorithm'.format(elec_modelled - elec_actual,
                                                          (urban_elec_modelled / urban_pop - elec_actual_urban),
                                                          (rural_elec_modelled / rural_pop - elec_actual_rural)))
-
+"""
 
         self.df[SET_ELEC_FINAL_CODE + "{}".format(start_year)] = 99
         self.df.loc[self.df[SET_ELEC_CURRENT] == 1, SET_ELEC_FINAL_CODE + "{}".format(start_year)] = 1
@@ -1390,7 +1390,7 @@ class SettlementProcessor:
                                                     year=year, grid_calc=grid_calc, grid_investment=grid_investment,
                                                     new_investment=new_investment, grid_capacity=grid_capacity,
                                                     new_capacity=new_capacity)
-                gv.settlementGridInvestment = pd.DataFrame(new_investment)
+                #gv.settlementGridInvestment = pd.DataFrame(new_investment)
 
         return new_lcoes, cell_path_adjusted, elecorder, cell_path_real, pd.DataFrame(new_investment), pd.DataFrame(
             new_capacity)
@@ -2017,7 +2017,7 @@ class SettlementProcessor:
         self.df.loc[(self.df[SET_LIMIT + "{}".format(year)] == 0), SET_INVESTMENT_COST + "{}".format(year)] = 0
         self.df.loc[(self.df[SET_LIMIT + "{}".format(year)] == 0), SET_NEW_CAPACITY + "{}".format(year)] = 0
 
-        print("The electrification rate achieved in {} is {:.1f} %".format(year, elecrate * 100))
+        #print("The electrification rate achieved in {} is {:.1f} %".format(year, elecrate * 100))
 
     def calc_summaries(self, df_summary, sumtechs, tech_codes, year):
 
@@ -2031,6 +2031,7 @@ class SettlementProcessor:
         summaries = [SET_POP, SET_NEW_CONNECTIONS, SET_NEW_CAPACITY, SET_INVESTMENT_COST]
 
         # Population Summaries
+
         for s in summaries:
             for t in tech_codes:
                 df_summary[year][sumtechs[i]] = sum(
@@ -2038,6 +2039,6 @@ class SettlementProcessor:
                                 (self.df[SET_LIMIT + "{}".format(year)] == 1)]
                     [s + "{}".format(year)])
 
-                #if s is SET_INVESTMENT_COST and t == 1:
-                 #   gv.settlementGridInvestment += df_summary[year][sumtechs[i]]
+                if s is SET_INVESTMENT_COST and t == 1:
+                    gv.settlementGridInvestment += df_summary[year][sumtechs[i]]
                 i += 1

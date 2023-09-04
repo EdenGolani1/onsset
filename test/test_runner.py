@@ -88,6 +88,8 @@ def update_test_file():
         copyfile(actual, expected)
 """
 
+
+
 if __name__ == '__main__':
     update_test_file()
 
@@ -95,28 +97,39 @@ df2 = pd.read_csv(gv.calibratedFileName)
 iter_counter = 0
 max_iter = 1500
 
-with open('gt_output.txt', 'w') as sys.stdout:
-    st = time.time()
-    while 1:
-        df = pd.read_csv(gv.outputFileName)
-        df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
-        print(df['GT_CalibratedConnectGrid'].value_counts())
-        iter_counter += 1
+st = time.time()
+start = time.localtime()
+print(f"\nStart of running: {start.tm_hour}:{start.tm_min}")
+terminal = sys.stdout
+#sys.stdout = open('gt_output.txt', 'w')
+total_moved_made = 0
+while 1:
 
-        # play the game
-        last_iter_changes = game_theory.game_iterations(df, 0.15, True)
-        # stop conditions
-        if last_iter_changes == 0:
-            print("\ntest_runner: STOPPED >> last_iter_changes is 0, iter_count == " + str(iter_counter - 1))
-            break
+    df = pd.read_csv(gv.outputFileName)
+    df['GT_CalibratedConnectGrid'] = df2['FinalElecCode2018']
+    iter_counter += 1
 
-        if iter_counter == max_iter:
-            print("\ntest_runner: STOPPED >> iter_count == " + str(max_iter))
-            break
+    # play the game
+    last_iter_changes = game_theory.game_iterations(df, 0.06, 10, False)
+    print(f"\nlast_iter_changes: {last_iter_changes}\n\n")
+    total_moved_made += last_iter_changes
 
-        # insert game results to onsset
-        update_test_file()
+    # stop conditions
+    if last_iter_changes == 0:
+        print(f"\ntest_runner: STOPPED >> no changes, iter_count == " + str(iter_counter - 1))
+        break
 
-    et = time.time()
-    print(df[df['GT_LatestDecision'] > 1 ]['GT_LatestDecision'])
-    print(f"Runtime: {int(et-st)}")
+    if iter_counter == max_iter:
+        print(f"\ntest_runner: STOPPED >> reached to max iter_count ({max_iter}")
+        break
+
+    # insert game results to onsset
+    gv.settlementGridInvestment = 0
+    update_test_file()
+
+
+et = time.time()
+# print(df[df['GT_LatestDecision'] > 1]['GT_LatestDecision'])
+sys.stdout = terminal
+print(f"total_moved_made: {total_moved_made}")
+print(f"Runtime: {int(et-st)} seconds")
