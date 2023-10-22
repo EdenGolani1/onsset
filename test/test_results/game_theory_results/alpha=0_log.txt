@@ -1,0 +1,16 @@
+============== OnSSET run ==============
+gridPop			-	 1,110,870
+gridInvestment	-	 138,698,663
+TotalCost		-	 16,831,564
+
+Delta:		-0.6388862487445002
+GridCost:	1843.566847803615
+LCOE:		0.20718957
+
+last_iter_changes: 0
+
+
+
+test_runner: STOPPED >> no changes, iter_count == 0with num of changes == 0
+total moves made: 0
+Runtime: 2.719 seconds

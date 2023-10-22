@@ -1,0 +1,56 @@
+============== OnSSET run ==============
+gridPop			-	 1,110,870
+gridInvestment	-	 138,698,663
+TotalCost		-	 16,831,564
+
+Delta:		0.021590634430344303
+GridCost:	3154.8804256618605
+LCOE:		0.20718957
+>>> 1304 disconnected
+
+Delta:		0.01689000013416782
+GridCost:	869.1571147471819
+LCOE:		0.20841068
+>>> 1213 disconnected
+
+Delta:		0.01242405528628552
+GridCost:	2679.2158720805237
+LCOE:		0.20957084
+>>> 1068 disconnected
+
+Delta:		0.0018299497683786406
+GridCost:	277.16024420414703
+LCOE:		0.21232297
+>>> 1132 disconnected
+
+Delta:		0.0013830295435754416
+GridCost:	1744.6462478237056
+LCOE:		0.21243906
+>>> 282 disconnected
+
+Delta:		0.0012496808185753052
+GridCost:	1201.0278147266226
+LCOE:		0.2124737
+>>> 1167 disconnected
+
+Delta:		-0.0
+GridCost:	1744.6462478237056
+LCOE:		0.21243906
+
+last_iter_changes: 6
+
+
+============== OnSSET run ==============
+gridPop			-	 1,104,623
+gridInvestment	-	 136,678,855
+TotalCost		-	 14,687,668
+
+Delta:		-0.0
+GridCost:	2779.8343922176123
+LCOE:		0.21243906
+
+last_iter_changes: 0
+
+
+
+test_runner: STOPPED >> no changes, iter_count == 1with num of changes == 6

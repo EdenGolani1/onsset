@@ -148,15 +148,21 @@ def scenario(specs_path, calibrated_csv_path, results_folder, summary_folder):
         auto_intensification = scenario_parameters.iloc[prio_index]['AutoIntensificationKM']
 
         settlements_in_csv = calibrated_csv_path
+        num = int(gv.iter_counter / 3)
         settlements_out_csv = os.path.join(results_folder,
-                                           '{}-1-{}_{}_{}_{}_{}_{}.csv'.format(country_id, pop_index, tier_index,
+                                           f"{gv.run_name}.csv".format(country_id, pop_index, tier_index,
                                                                                five_year_index, grid_index, pv_index,
                                                                                prio_index))
         gv.outputFileName = settlements_out_csv
         gv.calibratedFileName = calibrated_csv_path
 
-        summary_csv = os.path.join(summary_folder,
+        """summary_csv = os.path.join(summary_folder,
                                    '{}-1-{}_{}_{}_{}_{}_{}_summary.csv'.format(country_id, pop_index, tier_index,
+                                                                               five_year_index, grid_index, pv_index,
+                                                                               prio_index))"""
+
+        summary_csv = os.path.join(summary_folder,
+                                   f"{gv.run_name}_summary.csv".format(country_id, pop_index, tier_index,
                                                                                five_year_index, grid_index, pv_index,
                                                                                prio_index))
 

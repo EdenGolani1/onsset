@@ -1,0 +1,2026 @@
+============== OnSSET run ==============
+gridPop			-	 1,110,870
+gridInvestment	-	 138,698,663
+TotalCost		-	 16,831,564
+
+Delta:		0.4619085565469079
+GridCost:	4029.0894775673587
+LCOE:		0.20718957
+>>> 1304 disconnected
+
+Delta:		0.45720791936490185
+GridCost:	1109.9982473467358
+LCOE:		0.20841068
+>>> 1213 disconnected
+
+Delta:		0.45274197479148526
+GridCost:	3421.6194922998434
+LCOE:		0.20957084
+>>> 1068 disconnected
+
+Delta:		0.4421478700430208
+GridCost:	353.9606147442886
+LCOE:		0.21232297
+>>> 1132 disconnected
+
+Delta:		0.44170094796625553
+GridCost:	2228.08309098018
+LCOE:		0.21243906
+>>> 282 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,105,379
+gridInvestment	-	 136,701,369
+TotalCost		-	 14,688,886
+
+Delta:		0.11816832485757234
+GridCost:	1289.3974045665502
+LCOE:		0.2124737
+>>> 1167 disconnected
+
+Delta:		0.11506460910611688
+GridCost:	1289.3974045665502
+LCOE:		0.21327998
+>>> 1154 disconnected
+
+Delta:		0.11436966192438465
+GridCost:	1487.7662815524282
+LCOE:		0.21346053
+>>> 1150 disconnected
+
+Delta:		0.11098017872828791
+GridCost:	694.2909022977389
+LCOE:		0.21434104
+>>> 1120 disconnected
+
+Delta:		0.11039052065893327
+GridCost:	2082.8727558496084
+LCOE:		0.21449423
+>>> 1131 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,101,368
+gridInvestment	-	 136,581,673
+TotalCost		-	 14,682,423
+
+Delta:		0.11192182695651234
+GridCost:	893.8897286581459
+LCOE:		0.21470705
+>>> 1141 disconnected
+
+Delta:		0.10834243638436296
+GridCost:	3178.2744942149384
+LCOE:		0.2156369
+>>> 1396 disconnected
+
+Delta:		0.10750918627452545
+GridCost:	141.31991437550738
+LCOE:		0.21585336
+>>> 5 disconnected
+
+Delta:		0.10585208021575586
+GridCost:	1390.495075407449
+LCOE:		0.21628384
+>>> 1079 disconnected
+
+Delta:		0.10574695481526286
+GridCost:	186.87878531859482
+LCOE:		0.21631114
+>>> 1194 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,097,978
+gridInvestment	-	 136,463,768
+TotalCost		-	 14,675,694
+
+Delta:		0.107293920232878
+GridCost:	1093.689798505161
+LCOE:		0.21637963
+>>> 1466 disconnected
+
+Delta:		0.10578852222847454
+GridCost:	198.85269748830785
+LCOE:		0.21677072
+>>> 1152 disconnected
+
+Delta:		0.10574607286655359
+GridCost:	795.4107861808818
+LCOE:		0.21678175
+>>> 1105 disconnected
+
+Delta:		0.10416447883278038
+GridCost:	1590.153268456996
+LCOE:		0.2171926
+>>> 539 disconnected
+
+Delta:		0.10340908731006279
+GridCost:	1460.3423097637112
+LCOE:		0.21738884
+>>> 482 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,094,973
+gridInvestment	-	 136,373,841
+TotalCost		-	 14,670,869
+
+Delta:		0.10370561856680649
+GridCost:	199.0599666747019
+LCOE:		0.21777487
+>>> 1122 disconnected
+
+Delta:		0.10229337490775932
+GridCost:	1775.1211710478901
+LCOE:		0.21814175
+>>> 456 disconnected
+
+Delta:		0.10104501723928322
+GridCost:	208.83777327891326
+LCOE:		0.21846603
+>>> 464 disconnected
+
+Delta:		0.10067983225390996
+GridCost:	1557.7887397499262
+LCOE:		0.21856089
+>>> 252 disconnected
+
+Delta:		0.09986023643854537
+GridCost:	995.2998517941326
+LCOE:		0.2187738
+>>> 1163 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,092,206
+gridInvestment	-	 136,290,640
+TotalCost		-	 14,666,410
+
+Delta:		0.10075168466194284
+GridCost:	313.5579588156967
+LCOE:		0.21896994
+>>> 305 disconnected
+
+Delta:		0.09739586120517653
+GridCost:	298.8771003672494
+LCOE:		0.21984172
+>>> 1128 disconnected
+
+Delta:		0.09646322216591786
+GridCost:	298.8771003672494
+LCOE:		0.220084
+>>> 1074 disconnected
+
+Delta:		0.09598627046379382
+GridCost:	836.1545538526633
+LCOE:		0.2202079
+>>> 513 disconnected
+
+Delta:		0.09474667436058909
+GridCost:	797.0056593477028
+LCOE:		0.22052993
+>>> 1134 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,090,722
+gridInvestment	-	 136,244,445
+TotalCost		-	 14,663,905
+
+Delta:		0.09514400076061655
+GridCost:	897.086397952761
+LCOE:		0.2206526
+>>> 1142 disconnected
+
+Delta:		0.09490793293645503
+GridCost:	425.4758737780652
+LCOE:		0.22071391
+>>> 24 disconnected
+
+Delta:		0.0942726749526209
+GridCost:	375.09417768611
+LCOE:		0.22087894
+>>> 1271 disconnected
+
+Delta:		0.09408198770859037
+GridCost:	295.89353312672336
+LCOE:		0.22092849
+>>> 664 disconnected
+
+Delta:		0.09278399404310428
+GridCost:	522.8618048221798
+LCOE:		0.22126569
+>>> 485 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,089,254
+gridInvestment	-	 136,166,765
+TotalCost		-	 14,658,969
+
+Delta:		0.09283160872584306
+GridCost:	209.20531846616382
+LCOE:		0.22138238
+>>> 479 disconnected
+
+Delta:		0.09197307289525945
+GridCost:	517.9637447761934
+LCOE:		0.22160542
+>>> 690 disconnected
+
+Delta:		0.09056147641122317
+GridCost:	2392.9235923727206
+LCOE:		0.22197214
+>>> 1415 disconnected
+
+Delta:		0.08978516969923114
+GridCost:	1046.0266794945687
+LCOE:		0.22217378
+>>> 1432 disconnected
+
+Delta:		0.0855563790825221
+GridCost:	199.41030336567792
+LCOE:		0.22327234
+>>> 1180 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,086,708
+gridInvestment	-	 135,980,941
+TotalCost		-	 14,676,002
+
+Delta:		0.08745053443952332
+GridCost:	1703.6288506346873
+LCOE:		0.2231027
+>>> 125 disconnected
+
+Delta:		0.08504574333407049
+GridCost:	1258.8224045806273
+LCOE:		0.2237274
+>>> 677 disconnected
+
+Delta:		0.08413229425748793
+GridCost:	444.2902308925853
+LCOE:		0.22396468
+>>> 623 disconnected
+
+Delta:		0.08411560641866585
+GridCost:	1258.8224045806273
+LCOE:		0.22396903
+>>> 609 disconnected
+
+Delta:		0.08350570713937783
+GridCost:	1895.7688193681674
+LCOE:		0.22412744
+>>> 1165 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,082,885
+gridInvestment	-	 135,847,844
+TotalCost		-	 14,686,977
+
+Delta:		0.0867239332001077
+GridCost:	2517.3835416355
+LCOE:		0.22419696
+>>> 463 disconnected
+
+Delta:		0.08590551589512009
+GridCost:	188.11853594130545
+LCOE:		0.22440957
+>>> 1203 disconnected
+
+Delta:		0.08535214029201407
+GridCost:	1558.1743697807437
+LCOE:		0.22455333
+>>> 1442 disconnected
+
+Delta:		0.08429642626066201
+GridCost:	99.97997433504719
+LCOE:		0.22482759
+>>> 1143 disconnected
+
+Delta:		0.08398997342029085
+GridCost:	99.97997433504719
+LCOE:		0.2249072
+>>> 1168 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,080,289
+gridInvestment	-	 135,739,647
+TotalCost		-	 14,680,535
+
+Delta:		0.08491713232761246
+GridCost:	100.05171901985315
+LCOE:		0.22498691
+>>> 1124 disconnected
+
+Delta:		0.08491713232761246
+GridCost:	100.05171901985315
+LCOE:		0.22498691
+>>> 1127 disconnected
+
+Delta:		0.08491713232761246
+GridCost:	100.05171901985315
+LCOE:		0.22498691
+>>> 1138 disconnected
+
+Delta:		0.0848973626628679
+GridCost:	996.5166009348875
+LCOE:		0.22499204
+>>> 263 disconnected
+
+Delta:		0.08476125103087388
+GridCost:	222.75607867096056
+LCOE:		0.22502741
+>>> 651 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,079,406
+gridInvestment	-	 135,683,130
+TotalCost		-	 14,676,828
+
+Delta:		0.08399743330392155
+GridCost:	1469.6936803643923
+LCOE:		0.22527637
+>>> 445 disconnected
+
+Delta:		0.08357373501956852
+GridCost:	100.06303099191135
+LCOE:		0.22538644
+>>> 1139 disconnected
+
+Delta:		0.08349447309054464
+GridCost:	3415.979244834528
+LCOE:		0.22540702
+>>> 1448 disconnected
+
+Delta:		0.08341600589301791
+GridCost:	200.12606009814385
+LCOE:		0.22542742
+>>> 1071 disconnected
+
+Delta:		0.08341600589301791
+GridCost:	200.12606009814385
+LCOE:		0.22542742
+>>> 1075 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,076,277
+gridInvestment	-	 135,588,678
+TotalCost		-	 14,671,841
+
+Delta:		0.08533113606542599
+GridCost:	200.3487517984662
+LCOE:		0.22542742
+>>> 1078 disconnected
+
+Delta:		0.08487176362976943
+GridCost:	100.17437684168733
+LCOE:		0.22554675
+>>> 1144 disconnected
+
+Delta:		0.08444521404758401
+GridCost:	282.7264797528165
+LCOE:		0.22565757
+>>> 1201 disconnected
+
+Delta:		0.08391782731585301
+GridCost:	520.401343324993
+LCOE:		0.22579457
+>>> 1445 disconnected
+
+Delta:		0.083324294193402
+GridCost:	100.17437684168733
+LCOE:		0.22594875
+>>> 1070 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,075,578
+gridInvestment	-	 135,547,121
+TotalCost		-	 14,669,151
+
+Delta:		0.08351724784519662
+GridCost:	100.18559518533327
+LCOE:		0.22594875
+>>> 1072 disconnected
+
+Delta:		0.08351724784519662
+GridCost:	100.18559518533327
+LCOE:		0.22594875
+>>> 1073 disconnected
+
+Delta:		0.08351724784519662
+GridCost:	100.18559518533327
+LCOE:		0.22594875
+>>> 1106 disconnected
+
+Delta:		0.08338633850890864
+GridCost:	1576.6005732775188
+LCOE:		0.22598274
+>>> 452 disconnected
+
+Delta:		0.08320690708410211
+GridCost:	100.18559518533327
+LCOE:		0.22602937
+>>> 1125 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,074,431
+gridInvestment	-	 135,512,196
+TotalCost		-	 14,667,302
+
+Delta:		0.08390976992884328
+GridCost:	100.22645969789849
+LCOE:		0.22602937
+>>> 1130 disconnected
+
+Delta:		0.08378782009863384
+GridCost:	100.22645969789849
+LCOE:		0.22606105
+>>> 1116 disconnected
+
+Delta:		0.08373348840328075
+GridCost:	94.2911519039697
+LCOE:		0.22607516
+>>> 1209 disconnected
+
+Delta:		0.08349218414661148
+GridCost:	100.22645969789849
+LCOE:		0.22613785
+>>> 1121 disconnected
+
+Delta:		0.08311808058438322
+GridCost:	94.2911519039697
+LCOE:		0.22623503
+>>> 1198 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,074,147
+gridInvestment	-	 135,483,921
+TotalCost		-	 14,665,333
+
+Delta:		0.0830654279581098
+GridCost:	94.28827195811047
+LCOE:		0.22623503
+>>> 1202 disconnected
+
+Delta:		0.0830654279581098
+GridCost:	94.28827195811047
+LCOE:		0.22623503
+>>> 1208 disconnected
+
+Delta:		0.0819894525753893
+GridCost:	100.22339846932213
+LCOE:		0.22651455
+>>> 1126 disconnected
+
+Delta:		0.0819894525753893
+GridCost:	100.22339846932213
+LCOE:		0.22651455
+>>> 1129 disconnected
+
+Delta:		0.0819894525753893
+GridCost:	100.22339846932213
+LCOE:		0.22651455
+>>> 1136 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,073,863
+gridInvestment	-	 135,474,529
+TotalCost		-	 14,664,816
+
+Delta:		0.08184242332204203
+GridCost:	100.23300308084694
+LCOE:		0.22659566
+>>> 1117 disconnected
+
+Delta:		0.08076066250417153
+GridCost:	297.5462340784468
+LCOE:		0.22687668
+>>> 628 disconnected
+
+Delta:		0.07962461455780327
+GridCost:	1264.5715668115126
+LCOE:		0.2271718
+>>> 658 disconnected
+
+Delta:		0.0785574137943801
+GridCost:	105.15645028828635
+LCOE:		0.22744903
+>>> 523 disconnected
+
+Delta:		0.07799623299341692
+GridCost:	736.0950929107457
+LCOE:		0.22759482
+>>> 457 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,072,411
+gridInvestment	-	 135,403,393
+TotalCost		-	 14,660,411
+
+Delta:		0.07732044366672439
+GridCost:	94.3291283965323
+LCOE:		0.2279215
+>>> 770 disconnected
+
+Delta:		0.07683596603577911
+GridCost:	142.66557876204965
+LCOE:		0.22804736
+>>> 233 disconnected
+
+Delta:		0.07683596603577911
+GridCost:	142.66557876204965
+LCOE:		0.22804736
+>>> 235 disconnected
+
+Delta:		0.07683596603577911
+GridCost:	142.66557876204965
+LCOE:		0.22804736
+>>> 237 disconnected
+
+Delta:		0.07683596603577911
+GridCost:	142.66557876204965
+LCOE:		0.22804736
+>>> 238 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,072,025
+gridInvestment	-	 135,391,092
+TotalCost		-	 14,659,748
+
+Delta:		0.0765721913032726
+GridCost:	94.34174886530704
+LCOE:		0.22817582
+>>> 773 disconnected
+
+Delta:		0.0765721913032726
+GridCost:	94.34174886530704
+LCOE:		0.22817582
+>>> 775 disconnected
+
+Delta:		0.07606821990633054
+GridCost:	3577.0040791410183
+LCOE:		0.22830676
+>>> 415 disconnected
+
+Delta:		0.07474277419497445
+GridCost:	285.369318742908
+LCOE:		0.22865106
+>>> 258 disconnected
+
+Delta:		0.07438295667353516
+GridCost:	142.68466625416923
+LCOE:		0.22874454
+>>> 257 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,069,594
+gridInvestment	-	 135,249,459
+TotalCost		-	 14,693,302
+
+Delta:		0.07666002147071779
+GridCost:	1341.700560285764
+LCOE:		0.22885926
+>>> 617 disconnected
+
+Delta:		0.07658551407754782
+GridCost:	210.74364232919623
+LCOE:		0.2288786
+>>> 441 disconnected
+
+Delta:		0.07614860695438436
+GridCost:	894.4670665017755
+LCOE:		0.22899212
+>>> 1444 disconnected
+
+Delta:		0.07473706528565927
+GridCost:	142.90956445886064
+LCOE:		0.22935879
+>>> 262 disconnected
+
+Delta:		0.074093588158633
+GridCost:	596.311363556497
+LCOE:		0.22952594
+>>> 1440 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,067,749
+gridInvestment	-	 135,192,545
+TotalCost		-	 14,690,291
+
+Delta:		0.07488347533831491
+GridCost:	3580.2159462768436
+LCOE:		0.22961524
+>>> 1338 disconnected
+
+Delta:		0.07347252622694346
+GridCost:	372.9391527373495
+LCOE:		0.22998177
+>>> 636 disconnected
+
+Delta:		0.07339340478044518
+GridCost:	1306.554652073332
+LCOE:		0.2300023
+>>> 931 disconnected
+
+Delta:		0.07311347523730487
+GridCost:	94.55245047124924
+LCOE:		0.23007503
+>>> 537 disconnected
+
+Delta:		0.07231463657006623
+GridCost:	2535.986283095839
+LCOE:		0.23028256
+>>> 1413 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,063,185
+gridInvestment	-	 135,000,406
+TotalCost		-	 14,719,507
+
+Delta:		0.08004855146553978
+GridCost:	1268.6939355479176
+LCOE:		0.22948098
+>>> 467 disconnected
+
+Delta:		0.07927639541433773
+GridCost:	1794.9215286612753
+LCOE:		0.22968158
+>>> 1339 disconnected
+
+Delta:		0.07677345740218312
+GridCost:	302.3233502329623
+LCOE:		0.23033178
+>>> 1401 disconnected
+
+Delta:		0.07626767920109674
+GridCost:	127.26668661555667
+LCOE:		0.23046316
+>>> 766 disconnected
+
+Delta:		0.07441348360174238
+GridCost:	886.3056914755965
+LCOE:		0.23094486
+>>> 1363 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,060,658
+gridInvestment	-	 134,821,596
+TotalCost		-	 14,746,015
+
+Delta:		0.12212320849651066
+GridCost:	1328.6500110035408
+LCOE:		0.21901093
+>>> 920 disconnected
+
+Delta:		0.11022047035928617
+GridCost:	1148.275041656205
+LCOE:		0.22210303
+>>> 123 disconnected
+
+Delta:		0.07608718405519146
+GridCost:	149.72961546349603
+LCOE:		0.23097013
+>>> 662 disconnected
+
+Delta:		0.07578282576364401
+GridCost:	224.59443893712012
+LCOE:		0.2310492
+>>> 669 disconnected
+
+Delta:		0.07577830079935874
+GridCost:	1272.701803877575
+LCOE:		0.23105037
+>>> 674 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,058,281
+gridInvestment	-	 134,677,321
+TotalCost		-	 14,765,981
+
+Delta:		0.120618292230758
+GridCost:	1009.8467867338844
+LCOE:		0.21988109
+>>> 1464 disconnected
+
+Delta:		0.07752363901407366
+GridCost:	2019.693479845679
+LCOE:		0.23107621
+>>> 1462 disconnected
+
+Delta:		0.07751137418092321
+GridCost:	224.83322675853847
+LCOE:		0.23107938
+>>> 652 disconnected
+
+Delta:		0.07660307168099106
+GridCost:	524.6108199782736
+LCOE:		0.23131534
+>>> 1447 disconnected
+
+Delta:		0.07617402425453292
+GridCost:	1293.1828499032017
+LCOE:		0.23142679
+>>> 244 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,055,361
+gridInvestment	-	 134,500,155
+TotalCost		-	 14,805,237
+
+Delta:		0.12458832534801105
+GridCost:	1047.0486741527877
+LCOE:		0.21971308
+>>> 1263 disconnected
+
+Delta:		0.11219777858529424
+GridCost:	856.6761931292554
+LCOE:		0.22293188
+>>> 585 disconnected
+
+Delta:		0.09250960380472452
+GridCost:	976.1413908366115
+LCOE:		0.22804648
+>>> 587 disconnected
+
+Delta:		0.0881754280862738
+GridCost:	863.7713786721472
+LCOE:		0.2291724
+>>> 1308 disconnected
+
+Delta:		0.08449707038231494
+GridCost:	863.7713786721472
+LCOE:		0.23012796
+>>> 1310 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,052,714
+gridInvestment	-	 134,310,561
+TotalCost		-	 14,845,907
+
+Delta:		0.1340970182504699
+GridCost:	721.133487350997
+LCOE:		0.21807447
+>>> 259 disconnected
+
+Delta:		0.11905180934497041
+GridCost:	827.4850136248464
+LCOE:		0.2219829
+>>> 584 disconnected
+
+Delta:		0.11016436066768469
+GridCost:	810.9119634604756
+LCOE:		0.22429168
+>>> 1242 disconnected
+
+Delta:		0.1006876151652824
+GridCost:	850.7439351415336
+LCOE:		0.22675353
+>>> 1332 disconnected
+
+Delta:		0.08249953239716867
+GridCost:	526.581365369386
+LCOE:		0.23147842
+>>> 666 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,050,570
+gridInvestment	-	 134,155,179
+TotalCost		-	 14,873,205
+
+Delta:		0.1344517519699721
+GridCost:	851.7522993742408
+LCOE:		0.21851914
+>>> 1314 disconnected
+
+Delta:		0.10354597379396784
+GridCost:	811.8731159041324
+LCOE:		0.22654782
+>>> 1241 disconnected
+
+Delta:		0.10263609296877213
+GridCost:	828.4658096732297
+LCOE:		0.22678418
+>>> 583 disconnected
+
+Delta:		0.08450713251714823
+GridCost:	527.2055082963491
+LCOE:		0.23149371
+>>> 590 disconnected
+
+Delta:		0.08446022606607773
+GridCost:	1355.6713482624427
+LCOE:		0.2315059
+>>> 1441 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,048,064
+gridInvestment	-	 133,994,508
+TotalCost		-	 14,892,694
+
+Delta:		0.12455105726693286
+GridCost:	746.0325734666999
+LCOE:		0.22154704
+>>> 1417 disconnected
+
+Delta:		0.08619521606196172
+GridCost:	532.8804282366199
+LCOE:		0.23151109
+>>> 1433 disconnected
+
+Delta:		0.08549500991473159
+GridCost:	150.7815938947557
+LCOE:		0.23169298
+>>> 591 disconnected
+
+Delta:		0.08540120379413536
+GridCost:	753.9079896904971
+LCOE:		0.23171736
+>>> 1436 disconnected
+
+Delta:		0.08476529587062254
+GridCost:	959.1847006517229
+LCOE:		0.23188257
+>>> 1324 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,046,265
+gridInvestment	-	 133,876,797
+TotalCost		-	 14,913,652
+
+Delta:		0.10049810561486869
+GridCost:	640.126256340677
+LCOE:		0.22827092
+>>> 1323 disconnected
+
+Delta:		0.09399789026269817
+GridCost:	578.7768973744401
+LCOE:		0.22995955
+>>> 236 disconnected
+
+Delta:		0.08731439501863739
+GridCost:	679.2278632089759
+LCOE:		0.23169577
+>>> 589 disconnected
+
+Delta:		0.08645759805435396
+GridCost:	1157.5538139101036
+LCOE:		0.23191835
+>>> 1307 disconnected
+
+Delta:		0.08608764559568251
+GridCost:	226.4093008667216
+LCOE:		0.23201445
+>>> 1350 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,044,389
+gridInvestment	-	 133,727,088
+TotalCost		-	 14,940,986
+
+Delta:		0.13952408928435672
+GridCost:	670.3150017476544
+LCOE:		0.21855468
+>>> 1400 disconnected
+
+Delta:		0.1341894372893074
+GridCost:	640.7206125456277
+LCOE:		0.21994051
+>>> 372 disconnected
+
+Delta:		0.1227999472225517
+GridCost:	640.7206125456277
+LCOE:		0.22289926
+>>> 295 disconnected
+
+Delta:		0.08763700034093919
+GridCost:	2492.814647975317
+LCOE:		0.23203385
+>>> 619 disconnected
+
+Delta:		0.08756647848780982
+GridCost:	1435.2569360298558
+LCOE:		0.23205216
+>>> 657 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,041,030
+gridInvestment	-	 133,533,677
+TotalCost		-	 14,979,220
+
+Delta:		0.14467440251032584
+GridCost:	535.0189137106863
+LCOE:		0.21814097
+>>> 264 disconnected
+
+Delta:		0.14124879804933346
+GridCost:	535.0189137106863
+LCOE:		0.21903087
+>>> 290 disconnected
+
+Delta:		0.1385395384422954
+GridCost:	575.7233020168474
+LCOE:		0.21973468
+>>> 1469 disconnected
+
+Delta:		0.1361698560783925
+GridCost:	611.9630426535273
+LCOE:		0.22035027
+>>> 1091 disconnected
+
+Delta:		0.10048013902354276
+GridCost:	642.0226686905555
+LCOE:		0.22962171
+>>> 1333 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,039,377
+gridInvestment	-	 133,379,000
+TotalCost		-	 15,002,561
+
+Delta:		0.1532588870238557
+GridCost:	535.4006253263636
+LCOE:		0.21623604
+>>> 527 disconnected
+
+Delta:		0.1505440021399316
+GridCost:	535.4006253263636
+LCOE:		0.21694131
+>>> 541 disconnected
+
+Delta:		0.1456159281012678
+GridCost:	535.4006253263636
+LCOE:		0.21822152
+>>> 1316 disconnected
+
+Delta:		0.13033032337400818
+GridCost:	576.1340543578493
+LCOE:		0.2221924
+>>> 1284 disconnected
+
+Delta:		0.09222283326069872
+GridCost:	605.9788082922611
+LCOE:		0.2320919
+>>> 596 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,037,789
+gridInvestment	-	 133,267,147
+TotalCost		-	 15,019,143
+
+Delta:		0.1419537711076772
+GridCost:	428.6896433413468
+LCOE:		0.21956591
+>>> 516 disconnected
+
+Delta:		0.1292728371293359
+GridCost:	480.52548111870306
+LCOE:		0.22286016
+>>> 1399 disconnected
+
+Delta:		0.0931491206843861
+GridCost:	321.5172374537433
+LCOE:		0.23224433
+>>> 486 disconnected
+
+Delta:		0.09295413274243
+GridCost:	1598.8675274227369
+LCOE:		0.23229498
+>>> 1306 disconnected
+
+Delta:		0.0924593676659284
+GridCost:	379.0631783619692
+LCOE:		0.23242353
+>>> 679 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,035,963
+gridInvestment	-	 133,143,389
+TotalCost		-	 15,040,122
+
+Delta:		0.13205398065348303
+GridCost:	408.9830907331145
+LCOE:		0.22254513
+>>> 1391 disconnected
+
+Delta:		0.12104971259215447
+GridCost:	384.7635563740183
+LCOE:		0.22540379
+>>> 1259 disconnected
+
+Delta:		0.09390104570969544
+GridCost:	227.64094231882783
+LCOE:		0.23245646
+>>> 687 disconnected
+
+Delta:		0.09245789886224635
+GridCost:	2033.7154966311937
+LCOE:		0.23283133
+>>> 717 disconnected
+
+Delta:		0.09209180548460724
+GridCost:	2428.169945103154
+LCOE:		0.23292646
+>>> 1347 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,032,845
+gridInvestment	-	 133,024,168
+TotalCost		-	 15,041,770
+
+Delta:		0.16088669454038323
+GridCost:	322.2175753518537
+LCOE:		0.21564177
+>>> 544 disconnected
+
+Delta:		0.10234126620501316
+GridCost:	322.2175753518537
+LCOE:		0.23085064
+>>> 448 disconnected
+
+Delta:		0.09389063466463811
+GridCost:	3115.0886502344883
+LCOE:		0.23304594
+>>> 1345 disconnected
+
+Delta:		0.09352819687078061
+GridCost:	290.90395818665945
+LCOE:		0.23314011
+>>> 873 disconnected
+
+Delta:		0.09341951335183511
+GridCost:	3418.9998598521133
+LCOE:		0.23316833
+>>> 1438 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,028,603
+gridInvestment	-	 132,863,385
+TotalCost		-	 15,040,360
+
+Delta:		0.13567374702742724
+GridCost:	322.71477258522646
+LCOE:		0.22289741
+>>> 157 disconnected
+
+Delta:		0.09587337093987966
+GridCost:	2435.0403145706764
+LCOE:		0.23323672
+>>> 1349 disconnected
+
+Delta:		0.09569981738906369
+GridCost:	1435.4909658593251
+LCOE:		0.2332818
+>>> 1388 disconnected
+
+Delta:		0.09565165942728154
+GridCost:	608.7600781083938
+LCOE:		0.2332943
+>>> 607 disconnected
+
+Delta:		0.09535789380170824
+GridCost:	388.4704396285225
+LCOE:		0.23337062
+>>> 712 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,025,660
+gridInvestment	-	 132,742,787
+TotalCost		-	 15,044,247
+
+Delta:		0.15688011424656353
+GridCost:	323.0875385422113
+LCOE:		0.21791764
+>>> 538 disconnected
+
+Delta:		0.11021805821582249
+GridCost:	323.0875385422113
+LCOE:		0.23003946
+>>> 563 disconnected
+
+Delta:		0.09673265578040467
+GridCost:	685.6461508810844
+LCOE:		0.2335427
+>>> 1352 disconnected
+
+Delta:		0.09594215212999307
+GridCost:	1642.4561155130432
+LCOE:		0.23374805
+>>> 925 disconnected
+
+Delta:		0.09529218155087132
+GridCost:	2590.218889041682
+LCOE:		0.2339169
+>>> 604 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,022,508
+gridInvestment	-	 132,604,110
+TotalCost		-	 15,043,724
+
+Delta:		0.1276227455355221
+GridCost:	312.9398320197547
+LCOE:		0.22600734
+>>> 1342 disconnected
+
+Delta:		0.120898735360727
+GridCost:	323.4321618696706
+LCOE:		0.22775409
+>>> 322 disconnected
+
+Delta:		0.09705667565857144
+GridCost:	533.8491541201217
+LCOE:		0.23394777
+>>> 597 disconnected
+
+Delta:		0.09695494990477811
+GridCost:	305.0566628101179
+LCOE:		0.23397419
+>>> 1364 disconnected
+
+Delta:		0.09609761153572004
+GridCost:	551.5564837365637
+LCOE:		0.23419689
+>>> 815 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,021,362
+gridInvestment	-	 132,511,369
+TotalCost		-	 15,052,532
+
+Delta:		0.13933303222046287
+GridCost:	323.5232773936116
+LCOE:		0.2230946
+>>> 521 disconnected
+
+Delta:		0.11283442218989005
+GridCost:	292.51694984865867
+LCOE:		0.22997838
+>>> 141 disconnected
+
+Delta:		0.09660111760779562
+GridCost:	308.3758403777334
+LCOE:		0.23419546
+>>> 1053 disconnected
+
+Delta:		0.0964143369685899
+GridCost:	686.570862109033
+LCOE:		0.23424399
+>>> 663 disconnected
+
+Delta:		0.09541524087826407
+GridCost:	3392.1343908506637
+LCOE:		0.23450351
+>>> 897 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,018,532
+gridInvestment	-	 132,219,624
+TotalCost		-	 15,052,333
+
+Delta:		0.1534612407979615
+GridCost:	290.08412777823094
+LCOE:		0.21937682
+>>> 1252 disconnected
+
+Delta:		0.10849532379958804
+GridCost:	292.48664258229877
+LCOE:		0.231058
+>>> 128 disconnected
+
+Delta:		0.0925032504562053
+GridCost:	533.9442202353421
+LCOE:		0.23521242
+>>> 629 disconnected
+
+Delta:		0.09210782907158478
+GridCost:	205.56260937006562
+LCOE:		0.23531514
+>>> 1160 disconnected
+
+Delta:		0.09210782907158478
+GridCost:	205.56260937006562
+LCOE:		0.23531514
+>>> 1161 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,017,668
+gridInvestment	-	 132,098,421
+TotalCost		-	 15,060,665
+
+Delta:		0.09153291859737799
+GridCost:	205.49575867089186
+LCOE:		0.23531514
+>>> 1170 disconnected
+
+Delta:		0.091475138707525
+GridCost:	205.49575867089186
+LCOE:		0.23533015
+>>> 1181 disconnected
+
+Delta:		0.09139603299556762
+GridCost:	205.49575867089186
+LCOE:		0.2353507
+>>> 1171 disconnected
+
+Delta:		0.09073592048335338
+GridCost:	1601.3118095604514
+LCOE:		0.23552217
+>>> 1344 disconnected
+
+Delta:		0.09040424683289833
+GridCost:	538.9742672230183
+LCOE:		0.23560835
+>>> 365 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,016,108
+gridInvestment	-	 131,986,508
+TotalCost		-	 15,031,797
+
+Delta:		0.09064157924308963
+GridCost:	533.8508665774143
+LCOE:		0.23561575
+>>> 602 disconnected
+
+Delta:		0.09052722073804749
+GridCost:	381.32206386772776
+LCOE:		0.23564546
+>>> 682 disconnected
+
+Delta:		0.09028605864733687
+GridCost:	308.28997981230435
+LCOE:		0.2357081
+>>> 930 disconnected
+
+Delta:		0.09000786059810778
+GridCost:	308.28997981230435
+LCOE:		0.23578037
+>>> 1398 disconnected
+
+Delta:		0.08988988768575881
+GridCost:	991.4374016813031
+LCOE:		0.23581104
+>>> 683 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,014,680
+gridInvestment	-	 131,849,222
+TotalCost		-	 15,028,518
+
+Delta:		0.08952258592614622
+GridCost:	308.2584338084366
+LCOE:		0.23585945
+>>> 1174 disconnected
+
+Delta:		0.08876909512046724
+GridCost:	778.5908287543514
+LCOE:		0.23605518
+>>> 796 disconnected
+
+Delta:		0.08841310014659363
+GridCost:	778.5908287543514
+LCOE:		0.23614766
+>>> 810 disconnected
+
+Delta:		0.08836817827687889
+GridCost:	102.75282025122146
+LCOE:		0.23615934
+>>> 1157 disconnected
+
+Delta:		0.08836817827687889
+GridCost:	102.75282025122146
+LCOE:		0.23615934
+>>> 1169 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,013,508
+gridInvestment	-	 131,759,729
+TotalCost		-	 15,034,067
+
+Delta:		0.08828397943667748
+GridCost:	646.8497172448438
+LCOE:		0.23621638
+>>> 475 disconnected
+
+Delta:		0.08773624432435033
+GridCost:	1296.4616540363436
+LCOE:		0.23635866
+>>> 1340 disconnected
+
+Delta:		0.08771305517772097
+GridCost:	2059.0860937463076
+LCOE:		0.23636469
+>>> 1439 disconnected
+
+Delta:		0.08766831640844723
+GridCost:	431.2331510405882
+LCOE:		0.2363763
+>>> 546 disconnected
+
+Delta:		0.08714909417816463
+GridCost:	754.65800966301
+LCOE:		0.23651119
+>>> 451 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,010,573
+gridInvestment	-	 131,542,539
+TotalCost		-	 15,025,286
+
+Delta:		0.08745041863172248
+GridCost:	102.78575226733611
+LCOE:		0.2365449
+>>> 1156 disconnected
+
+Delta:		0.08692281514063264
+GridCost:	381.40524505851033
+LCOE:		0.23668197
+>>> 630 disconnected
+
+Delta:		0.08632900637357088
+GridCost:	746.3886652933772
+LCOE:		0.2368362
+>>> 1358 disconnected
+
+Delta:		0.08614293590795898
+GridCost:	107.83459056321591
+LCOE:		0.23688455
+>>> 449 disconnected
+
+Delta:		0.08612275160197633
+GridCost:	647.0074861489253
+LCOE:		0.23688981
+>>> 1328 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,009,450
+gridInvestment	-	 131,430,390
+TotalCost		-	 15,005,051
+
+Delta:		0.08560915998013711
+GridCost:	610.1828445661741
+LCOE:		0.23697388
+>>> 620 disconnected
+
+Delta:		0.08519876065026052
+GridCost:	107.82300864719137
+LCOE:		0.2370805
+>>> 455 disconnected
+
+Delta:		0.08434906442469046
+GridCost:	3277.267870736214
+LCOE:		0.23730125
+>>> 731 disconnected
+
+Delta:		0.08420294422895097
+GridCost:	152.54570729633096
+LCOE:		0.2373392
+>>> 646 disconnected
+
+Delta:		0.08361251133193202
+GridCost:	686.4556911870318
+LCOE:		0.23749259
+>>> 1356 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,006,715
+gridInvestment	-	 131,336,829
+TotalCost		-	 14,999,954
+
+Delta:		0.08484504092428193
+GridCost:	974.4064841202759
+LCOE:		0.23762555
+>>> 1384 disconnected
+
+Delta:		0.08482666036369539
+GridCost:	107.92940943666598
+LCOE:		0.23763032
+>>> 444 disconnected
+
+Delta:		0.08482666036369539
+GridCost:	107.92940943666598
+LCOE:		0.23763032
+>>> 447 disconnected
+
+Delta:		0.08389712061222017
+GridCost:	227.36150696676737
+LCOE:		0.2378718
+>>> 711 disconnected
+
+Delta:		0.08356464283412604
+GridCost:	617.2567465652901
+LCOE:		0.23795818
+>>> 1459 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,005,565
+gridInvestment	-	 131,298,204
+TotalCost		-	 14,997,866
+
+Delta:		0.08371591842027842
+GridCost:	229.14085537092308
+LCOE:		0.2381125
+>>> 635 disconnected
+
+Delta:		0.08331313679118818
+GridCost:	152.76055953403295
+LCOE:		0.23821713
+>>> 668 disconnected
+
+Delta:		0.08265409310145436
+GridCost:	1169.7803465016607
+LCOE:		0.23838834
+>>> 760 disconnected
+
+Delta:		0.08262458988428802
+GridCost:	305.5211190680659
+LCOE:		0.238396
+>>> 611 disconnected
+
+Delta:		0.08237469323119188
+GridCost:	107.97487142095991
+LCOE:		0.23846091
+>>> 453 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,004,455
+gridInvestment	-	 131,260,750
+TotalCost		-	 14,995,839
+
+Delta:		0.08276287126513321
+GridCost:	458.4678822289005
+LCOE:		0.23854691
+>>> 1412 disconnected
+
+Delta:		0.08179687776566928
+GridCost:	3120.681675176898
+LCOE:		0.23879786
+>>> 1369 disconnected
+
+Delta:		0.0809640609972723
+GridCost:	152.8226289265856
+LCOE:		0.23901422
+>>> 598 disconnected
+
+Delta:		0.08084977605037197
+GridCost:	195.04260373801483
+LCOE:		0.2390439
+>>> 899 disconnected
+
+Delta:		0.08043133887256788
+GridCost:	305.6452578531712
+LCOE:		0.23915261
+>>> 1360 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,002,065
+gridInvestment	-	 131,179,181
+TotalCost		-	 14,991,406
+
+Delta:		0.08151868442637666
+GridCost:	325.3542504507012
+LCOE:		0.23927099
+>>> 799 disconnected
+
+Delta:		0.08035760129744063
+GridCost:	130.1416928286537
+LCOE:		0.2395726
+>>> 868 disconnected
+
+Delta:		0.08006692559776979
+GridCost:	227.7479635929743
+LCOE:		0.23964812
+>>> 719 disconnected
+
+Delta:		0.07986574294386313
+GridCost:	229.4336944672974
+LCOE:		0.23970039
+>>> 595 disconnected
+
+Delta:		0.07975805823425408
+GridCost:	152.95578558259405
+LCOE:		0.23972836
+>>> 684 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,001,464
+gridInvestment	-	 131,099,334
+TotalCost		-	 14,990,891
+
+Delta:		0.07903896759401809
+GridCost:	324.2761388558937
+LCOE:		0.23982653
+>>> 461 disconnected
+
+Delta:		0.07882616080947553
+GridCost:	382.3158748359182
+LCOE:		0.23988183
+>>> 1357 disconnected
+
+Delta:		0.07865382199377588
+GridCost:	382.3158748359182
+LCOE:		0.2399266
+>>> 1354 disconnected
+
+Delta:		0.07794530230518262
+GridCost:	305.852690067245
+LCOE:		0.24011065
+>>> 654 disconnected
+
+Delta:		0.07779447606532254
+GridCost:	382.3158748359182
+LCOE:		0.24014984
+>>> 686 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 1,000,461
+gridInvestment	-	 131,005,070
+TotalCost		-	 14,995,623
+
+Delta:		0.07732497119685355
+GridCost:	455.38536676184356
+LCOE:		0.24024865
+>>> 746 disconnected
+
+Delta:		0.07700298820184415
+GridCost:	1431.2111568868631
+LCOE:		0.24033228
+>>> 1376 disconnected
+
+Delta:		0.0769815717249528
+GridCost:	1236.0460342998922
+LCOE:		0.24033786
+>>> 1371 disconnected
+
+Delta:		0.0767555268739546
+GridCost:	432.3464352775692
+LCOE:		0.24039657
+>>> 1330 disconnected
+
+Delta:		0.07623206800033078
+GridCost:	130.11010008554223
+LCOE:		0.24053255
+>>> 764 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 998,381
+gridInvestment	-	 130,898,988
+TotalCost		-	 14,995,820
+
+Delta:		0.07611246096636098
+GridCost:	195.26638602328592
+LCOE:		0.24080239
+>>> 1450 disconnected
+
+Delta:		0.0757910158808917
+GridCost:	535.4928895891586
+LCOE:		0.24088591
+>>> 1355 disconnected
+
+Delta:		0.075710400342987
+GridCost:	412.3176598125282
+LCOE:		0.24090685
+>>> 971 disconnected
+
+Delta:		0.07561869537116377
+GridCost:	324.4280178405855
+LCOE:		0.24093066
+>>> 459 disconnected
+
+Delta:		0.07463182749854644
+GridCost:	325.44398168730584
+LCOE:		0.24118704
+>>> 1454 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 997,370
+gridInvestment	-	 130,797,025
+TotalCost		-	 14,971,612
+
+Delta:		0.07416014590927672
+GridCost:	382.45768428595244
+LCOE:		0.24126472
+>>> 1348 disconnected
+
+Delta:		0.07392448430422868
+GridCost:	103.06937645637245
+LCOE:		0.24132593
+>>> 972 disconnected
+
+Delta:		0.07333572704264396
+GridCost:	455.57718966616744
+LCOE:		0.24147888
+>>> 806 disconnected
+
+Delta:		0.07275961461075822
+GridCost:	152.9830688073397
+LCOE:		0.24162854
+>>> 1443 disconnected
+
+Delta:		0.07197730403573878
+GridCost:	432.5285534349956
+LCOE:		0.24183176
+>>> 468 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 996,509
+gridInvestment	-	 130,702,308
+TotalCost		-	 14,971,806
+
+Delta:		0.07110579242359888
+GridCost:	152.96199864250994
+LCOE:		0.24199474
+>>> 1351 disconnected
+
+Delta:		0.07063182899103512
+GridCost:	229.4430140622814
+LCOE:		0.24211787
+>>> 605 disconnected
+
+Delta:		0.0703724325372942
+GridCost:	130.14697917394784
+LCOE:		0.24218524
+>>> 753 disconnected
+
+Delta:		0.06933621109021733
+GridCost:	152.96199864250994
+LCOE:		0.24245444
+>>> 642 disconnected
+
+Delta:		0.06889473684639927
+GridCost:	229.4430140622814
+LCOE:		0.24256913
+>>> 612 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 996,004
+gridInvestment	-	 130,685,041
+TotalCost		-	 14,970,873
+
+Delta:		0.06902676029411303
+GridCost:	423.0563885822995
+LCOE:		0.24262048
+>>> 783 disconnected
+
+Delta:		0.0676595143457865
+GridCost:	304.2948216391571
+LCOE:		0.24297567
+>>> 698 disconnected
+
+Delta:		0.06394630008305797
+GridCost:	305.9809042940519
+LCOE:		0.24394028
+>>> 1346 disconnected
+
+Delta:		0.06318356960192055
+GridCost:	382.476142639465
+LCOE:		0.24413843
+>>> 614 disconnected
+
+Delta:		0.0612693126376199
+GridCost:	97.62839650832771
+LCOE:		0.24463569
+>>> 900 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 995,150
+gridInvestment	-	 130,655,333
+TotalCost		-	 14,969,260
+
+Delta:		0.06165781730175534
+GridCost:	260.4234118121844
+LCOE:		0.24467812
+>>> 1370 disconnected
+
+Delta:		0.060895722656651496
+GridCost:	292.9763578607835
+LCOE:		0.24487612
+>>> 902 disconnected
+
+Delta:		0.06062770396803807
+GridCost:	423.1880695111346
+LCOE:		0.24494573
+>>> 843 disconnected
+
+Delta:		0.05609013589812102
+GridCost:	911.4819743477035
+LCOE:		0.2461245
+>>> 1414 disconnected
+
+Delta:		0.05608615166798922
+GridCost:	488.29391249558074
+LCOE:		0.24612553
+>>> 742 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 993,810
+gridInvestment	-	 130,500,220
+TotalCost		-	 14,951,099
+
+Delta:		0.05531891411109067
+GridCost:	97.63263862197117
+LCOE:		0.24620149
+>>> 754 disconnected
+
+Delta:		0.05436999194365466
+GridCost:	97.63263862197117
+LCOE:		0.246448
+>>> 1455 disconnected
+
+Delta:		0.05429207530213352
+GridCost:	325.4421305487473
+LCOE:		0.24646826
+>>> 876 disconnected
+
+Delta:		0.05428902317484116
+GridCost:	195.2652753309207
+LCOE:		0.24646904
+>>> 732 disconnected
+
+Delta:		0.05275454946360012
+GridCost:	488.16318354474754
+LCOE:		0.24686767
+>>> 1451 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 993,131
+gridInvestment	-	 130,459,260
+TotalCost		-	 14,948,488
+
+Delta:		0.050823754829003885
+GridCost:	1236.8375986958308
+LCOE:		0.24742791
+>>> 1368 disconnected
+
+Delta:		0.04654343386195659
+GridCost:	358.03192951293556
+LCOE:		0.24853984
+>>> 701 disconnected
+
+Delta:		0.04632463368013412
+GridCost:	716.0638524818246
+LCOE:		0.24859667
+>>> 1375 disconnected
+
+Delta:		0.044251722074052514
+GridCost:	130.19342263565042
+LCOE:		0.24913517
+>>> 772 disconnected
+
+Delta:		0.04228666677625675
+GridCost:	130.19342263565042
+LCOE:		0.24964565
+>>> 710 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 991,681
+gridInvestment	-	 130,405,822
+TotalCost		-	 14,945,537
+
+Delta:		0.042512586783650795
+GridCost:	130.25986863377491
+LCOE:		0.24982205
+>>> 777 disconnected
+
+Delta:		0.039995810130451726
+GridCost:	293.084724025422
+LCOE:		0.25047588
+>>> 728 disconnected
+
+Delta:		0.039195570449323563
+GridCost:	227.95477127008036
+LCOE:		0.25068375
+>>> 1362 disconnected
+
+Delta:		0.03863596668068942
+GridCost:	162.82484501144577
+LCOE:		0.25082913
+>>> 1452 disconnected
+
+Delta:		0.038107019938885565
+GridCost:	97.69490646050834
+LCOE:		0.25096652
+>>> 727 disconnected
+
+last_iter_changes: 5
+
+
+============== OnSSET run ==============
+gridPop			-	 991,167
+gridInvestment	-	 130,380,279
+TotalCost		-	 14,943,988
+
+Delta:		0.022180518052877848
+GridCost:	325.693662404013
+LCOE:		0.25516614
+>>> 1456 disconnected
+
+Delta:		0.01948399640603751
+GridCost:	97.70809817396457
+LCOE:		0.25586662
+>>> 725 disconnected
+
+Delta:		0.01874875591283137
+GridCost:	97.70809817396457
+LCOE:		0.25605762
+>>> 735 disconnected
+
+Delta:		0.01768207978368241
+GridCost:	97.70809817396457
+LCOE:		0.25633472
+>>> 1373 disconnected
+
+Delta:		-0.0
+GridCost:	280.4925475208089
+LCOE:		0.21585336
+
+last_iter_changes: 4
+
+
+============== OnSSET run ==============
+gridPop			-	 990,818
+gridInvestment	-	 130,364,682
+TotalCost		-	 14,943,076
+
+Delta:		-0.0
+GridCost:	280.5224011588636
+LCOE:		0.21585336
+
+last_iter_changes: 0
+
+
+
+test_runner: STOPPED >> no changes, iter_count == 61with num of changes == 304
